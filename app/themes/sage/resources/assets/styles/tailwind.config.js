@@ -51,6 +51,7 @@ let colors = {
   'primary-5': '#f3f3f3',
   'primary-6': '#d8d8d8',
   'primary-7': '#d0d0d0',
+  'primary-8': '#ff7c1d',
 
   'primary-1-transparent': 'rgba(35,47,64,0.75)',
 

@@ -72,6 +72,14 @@
   }
 }
 
+.menu-item-book-now.menu-item-has-children {
+  > a {
+    &::after {
+      @apply hidden;
+    }
+  }
+}
+
 // Menu Item
 .menu-item {
   // Header Specific
@@ -169,14 +177,6 @@
   .menu-item[data-state="open"] & {
     @apply block;
   }
-
-  // Hover State
-  .menu-item:hover & {
-    // 1200
-    @media (min-width: 1200px) {
-      @apply block;
-    }
-  }
 }
 
 .sub-menu--mega {
@@ -187,21 +187,15 @@
     left: auto;
     right: -512px;
   }
+}
 
-  // Open State
-  .menu-item[data-state="open"] & {
-    // 1024
-    @media (min-width: 1024px) {
-      @apply block;
-    }
-  }
+.sub-menu--form {
+  // 1024
+  @media (min-width: 1024px) {
+    @apply w-mega;
 
-  // Hover State
-  .menu-item:hover & {
-    // 1024
-    @media (min-width: 1024px) {
-      @apply block;
-    }
+    left: auto;
+    right: 0;
   }
 }
 

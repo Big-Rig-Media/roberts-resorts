@@ -34,9 +34,36 @@
       <li class="menu-item menu-item-specials">
         <a href="#">Specials</a>
       </li>
-      <li class="menu-item menu-item-book-now px-6 text-white bg-primary-2" data-state="closed">
+      <li class="menu-item menu-item-book-now menu-item-has-children px-6 text-white bg-primary-2" data-state="closed">
         @if( !is_singular('listings') )
           <a class="md:grid-center md:h-full" href="javascript:void(0)">Book Now</a>
+          <div class="sub-menu sub-menu--form bg-primary-8">
+            <form class="w-full max-w-xl mx-auto js-book-resorts" method="post">
+              <div class="md:flex md:flex-row md:flex-no-wrap md:items-end md:justify-between">
+                @if( App::resorts() )
+                  <div class="flex flex-column flex-wrap w-full md:max-w-xs mb-3 md:mb-0">
+                    <label class="block w-full mb-2 font-semibold text-white text-shadow uppercase" for="resort">Choose Location</label>
+                    <select class="w-full h-10 max-h-input px-6 bg-white" name="resort">
+                      <option selected>Please Select</option>
+                      @foreach( App::resorts() as $resort )
+                        <option value="{{ App::resortCampspotSlug($resort) }}" data-slug="{{ $resort->post_name }}">{{ $resort->post_title }}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                @endif
+                <div class="flex flex-column flex-wrap w-full md:max-w-xxs md:mx-3 mb-3 md:mb-0">
+                  <label class="block w-full mb-2 font-semibold text-white text-shadow uppercase" for="check-in">Check-In</label>
+                  <input class="w-full h-10 max-h-input px-6 bg-white" type="date" name="check-in" />
+                </div>
+                <div class="flex flex-column flex-wrap w-full md:max-w-xxs md:mr-3 mb-3 md:mb-0">
+                  <label class="block w-full mb-2 font-semibold text-white text-shadow uppercase" for="check-out">Check-Out</label>
+                  <input class="w-full h-10 max-h-input px-6 bg-white" type="date" name="check-out" />
+                </div>
+                <input class="inline-block w-full md:w-auto mb-3 md:mb-0 py-3 px-4 text-sm font-semibold text-white text-shadow uppercase no-underline bg-primary-3 cursor-pointer" type="submit" name="reserve" value="Check Availability" />
+                <input class="inline-block w-full md:w-auto md:ml-2 py-3 px-4 text-sm font-semibold text-white text-shadow uppercase no-underline bg-primary-3 cursor-pointer" type="submit" name="explore" value="View Resort" />
+              </div>
+            </form>
+          </div>
         @endif
       </li>
     </ul>

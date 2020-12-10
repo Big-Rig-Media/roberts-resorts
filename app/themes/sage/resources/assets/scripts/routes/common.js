@@ -43,7 +43,7 @@ export default {
     }
 
     // Handle dropdowns visibility state
-    if (window.matchMedia('(max-width: 1199px)').matches) {
+    if (dropdowns) {
       dropdowns.forEach(dropdown => {
         dropdown.setAttribute('data-state', 'closed')
 

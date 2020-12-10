@@ -1,5 +1,5 @@
 <header class="border-b border-gray">
-  <div class="md:py-6 bg-primary-1">
+  <div class="md:py-4 bg-primary-1">
     <div class="w-full max-w-custom mx-auto px-base">
       <div class="flex flex-row flex-no-wrap justify-center md:justify-end text-white">
         <a class="py-3 px-4 md:py-0 md:px-0 font-semibold md:font-normal text-current text-shadow uppercase no-underline bg-primary-2 md:bg-transparent" href="{{ get_permalink(109) }}">Find a Resort</a>

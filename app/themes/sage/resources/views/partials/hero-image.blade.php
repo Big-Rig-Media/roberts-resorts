@@ -21,7 +21,8 @@
                 <span class="mb-2 md:mb-0 mx-2 uppercase">
                   <span class="hidden md:inline-block pr-2 font-bold">&#124;</span>
                   <strong>{{ SingleListings::homeSalesPhone($post) }}</strong> Home Sales
-                  <span class="hidden md:inline-block pl-2 font-bold">&#124;</span></span>
+                  <span class="hidden md:inline-block pl-2 font-bold">&#124;</span>
+                </span>
               @endif
               @if( SingleListings::homeRentalsPhone($post) )
                 <span class="uppercase"><strong>{{ SingleListings::homeRentalsPhone($post) }}</strong> Home Rentals</span>
@@ -38,7 +39,11 @@
                 <span class="mb-2 md:mb-0 uppercase"><strong>{{ SingleListings::frontDeskPhone(get_queried_object()->post_parent) }}</strong> Front Desk</span>
               @endif
               @if( SingleListings::homeSalesPhone(get_queried_object()->post_parent) )
-                <span class="mb-2 md:mb-0 mx-5 uppercase"><strong>{{ SingleListings::homeSalesPhone(get_queried_object()->post_parent) }}</strong> Home Sales</span>
+                <span class="mb-2 md:mb-0 mx-2 uppercase">
+                  <span class="hidden md:inline-block pr-2 font-bold">&#124;</span>
+                  <strong>{{ SingleListings::homeSalesPhone(get_queried_object()->post_parent) }}</strong> Home Sales
+                  <span class="hidden md:inline-block pl-2 font-bold">&#124;</span>
+                </span>
               @endif
               @if( SingleListings::homeRentalsPhone(get_queried_object()->post_parent) )
                 <span class="uppercase"><strong>{{ SingleListings::homeRentalsPhone(get_queried_object()->post_parent) }}</strong> Home Rentals</span>

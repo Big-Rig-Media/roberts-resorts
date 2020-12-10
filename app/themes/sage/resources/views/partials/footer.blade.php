@@ -12,7 +12,7 @@
           @endif
         </nav>
       </div>
-      <div>
+      <div class="hidden md:block">
         Form
       </div>
     </div>
