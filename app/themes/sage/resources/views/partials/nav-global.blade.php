@@ -1,4 +1,4 @@
-@if( is_front_page() && !is_singular('listings') )
+@if( ( is_front_page() || is_page() ) && !is_singular('listings') )
   <nav class="nav nav--header mb-4 md:mb-0">
     <ul class="nav__list">
       @if( App::resorts() )
@@ -32,7 +32,7 @@
         <a href="javascript:void(0)">Homes & Lots for Sale</a>
       </li>
       <li class="menu-item menu-item-specials">
-        <a href="#">Specials</a>
+        <a href="{{ get_permalink(203) }}">Specials</a>
       </li>
       <li class="menu-item menu-item-book-now menu-item-has-children px-6 text-white bg-primary-2" data-state="closed">
         @if( !is_singular('listings') )
