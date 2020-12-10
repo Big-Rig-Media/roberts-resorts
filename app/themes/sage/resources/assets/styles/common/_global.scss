@@ -1,0 +1,49 @@
+body {
+  @apply font-metropolis font-normal text-primary-1 bg-white;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ol:not([class]),
+ul:not([class]) {
+  @apply pl-10;
+}
+
+li:not([class]) + li:not([class]) {
+  @apply mt-2;
+}
+
+hr {
+  @apply block h-px my-8 bg-white;
+
+  clear: both;
+}
+
+address {
+  @apply roman leading-normal;
+
+  span:first-child {
+    @apply block;
+  }
+}
+
+input[type="date"] {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 22 25' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.643 3.125h-2.357V.585a.59.59 0 00-.59-.585h-.392a.59.59 0 00-.59.586v2.539H6.286V.585A.59.59 0 005.696 0h-.392a.59.59 0 00-.59.586v2.539H2.357A2.351 2.351 0 000 5.469v17.187A2.351 2.351 0 002.357 25h17.286A2.351 2.351 0 0022 22.656V5.47a2.351 2.351 0 00-2.357-2.344zM2.357 4.688h17.286c.432 0 .786.351.786.78v2.345H1.57V5.469c0-.43.354-.782.786-.782zm17.286 18.75H2.357a.786.786 0 01-.786-.782V9.375H20.43v13.281c0 .43-.354.782-.786.782zM7.268 15.625H5.304a.59.59 0 01-.59-.586v-1.953a.59.59 0 01.59-.586h1.964a.59.59 0 01.59.586v1.953a.59.59 0 01-.59.586zm4.714 0h-1.964a.59.59 0 01-.59-.586v-1.953a.59.59 0 01.59-.586h1.964a.59.59 0 01.59.586v1.953a.59.59 0 01-.59.586zm4.714 0h-1.964a.59.59 0 01-.59-.586v-1.953a.59.59 0 01.59-.586h1.964a.59.59 0 01.59.586v1.953a.59.59 0 01-.59.586zm-4.714 4.688h-1.964a.59.59 0 01-.59-.586v-1.954a.59.59 0 01.59-.585h1.964a.59.59 0 01.59.585v1.954a.59.59 0 01-.59.585zm-4.714 0H5.304a.59.59 0 01-.59-.586v-1.954a.59.59 0 01.59-.585h1.964a.59.59 0 01.59.585v1.954a.59.59 0 01-.59.585zm9.428 0h-1.964a.59.59 0 01-.59-.586v-1.954a.59.59 0 01.59-.585h1.964a.59.59 0 01.59.585v1.954a.59.59 0 01-.59.585z' fill='%232E4F5E' fill-rule='nonzero'/%3E%3C/svg%3E%0A");
+  background-position: calc(100% - 15px) center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 21 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.809.421c-.316-.465-.915-.56-1.336-.21L10.5 7.63 1.527.212C1.106-.14.507-.044.191.42c-.316.465-.23 1.125.19 1.474l9.547 7.894c.17.14.37.211.572.211.202 0 .403-.07.573-.21l9.545-7.895c.422-.349.507-1.009.191-1.474z' fill='%23FE9C02' fill-rule='nonzero'/%3E%3C/svg%3E%0A");
+  background-position: calc(100% - 15px) center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  appearance: none;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}

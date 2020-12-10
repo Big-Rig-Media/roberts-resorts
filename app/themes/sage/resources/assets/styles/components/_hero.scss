@@ -1,0 +1,58 @@
+// Hero
+.hero {
+  @apply relative overflow-hidden;
+
+  // 1024
+  @media (min-width: 1024px) {
+    @apply h-screen max-h-hero;
+  }
+
+  // Home Specific
+  .page-template-template-home & {
+    // 1024
+    @media (min-width: 1024px) {
+      @apply max-h-hero-home;
+    }
+  }
+
+  // Has Background
+  &.has-bg {
+    @apply bg-center bg-no-repeat bg-cover;
+  }
+
+  h1 {
+    @apply text-shadow;
+
+    font-size: 3.125rem;
+
+    // 1024
+    @media (min-width: 1024px) {
+      font-size: 3.75rem;
+    }
+  }
+}
+
+// Video
+.hero__video {
+  @apply absolute pin w-full h-full;
+
+  object-fit: cover;
+}
+
+// Carousel
+.hero__carousel {
+  @apply w-full h-full;
+}
+
+// Carousel Image
+.hero__carousel__image {
+  // Has Loaded
+  &.has-loaded {
+    @apply w-screen h-screen max-h-hero bg-center bg-no-repeat bg-cover;
+
+    // 1024
+    @media (min-width: 1024px) {
+      @apply max-h-hero-home;
+    }
+  }
+}

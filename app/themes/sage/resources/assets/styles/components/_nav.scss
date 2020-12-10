@@ -1,0 +1,268 @@
+// Header Navigation
+.nav--header {
+  // 1023 <=
+  @media (max-width: 1023px) {
+    @apply hidden w-full bg-white;
+
+    // Open State
+    .nav-is-open & {
+      @apply block;
+    }
+  }
+}
+
+// Pagination Specific
+.nav--pagination {
+  @apply mt-10;
+}
+
+// Navigation List
+.nav__list {
+  @apply list-reset;
+
+  // Header Specific
+  .nav--header & {
+    // 1024
+    @media (min-width: 1024px) {
+      @apply flex flex-row flex-no-wrap items-center h-full;
+    }
+
+    > .menu-item {
+      // 1024
+      @media (min-width: 1024px) {
+        @apply grid;
+
+        place-items: center;
+      }
+
+      > a {
+        @apply text-base font-semibold text-primary-1 uppercase;
+      }
+    }
+  }
+
+  // Footer Specific
+  .nav--footer & {
+    // 1024
+    @media (min-width: 1024px) {
+      columns: 2;
+    }
+  }
+
+  // Pagination Specific
+  .nav--pagination & {
+    @apply flex flex-row flex-no-wrap items-center;
+  }
+}
+
+// Has Dropdown
+.menu-item-has-children {
+  > a {
+    &::after {
+      @apply inline-block ml-2 text-primary-2 font-fontawesome-light;
+
+      content: "\f078";
+    }
+  }
+
+  &[data-state="open"] {
+    > a::after {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+// Menu Item
+.menu-item {
+  // Header Specific
+  .nav--header & {
+    @apply relative;
+
+    // 1024
+    @media (min-width: 1024px) {
+      @apply h-full;
+    }
+  }
+
+  // Footer Specific
+  .nav--footer & {
+    @apply mb-4;
+  }
+
+  a {
+    @apply no-underline;
+  }
+}
+
+.menu-item.menu-item-book-now {
+  .nav--header & {
+    // 1023 <=
+    @media (max-width: 1023px) {
+      @apply py-3 px-4 text-center;
+    }
+
+    a {
+      @apply text-white text-shadow;
+
+      // 1023 <=
+      @media (max-width: 1023px) {
+        @apply text-sm;
+      }
+    }
+  }
+}
+
+// Adjacent Menu Items
+.menu-item + .menu-item {
+  // 1023 <=
+  @media (max-width: 1023px) {
+    // Header Specific
+    .nav--header & {
+      @apply mt-8;
+    }
+  }
+
+  // 1024
+  @media (min-width: 1024px) {
+    // Header Specific
+    .nav--header & {
+      @apply ml-8;
+    }
+  }
+
+  // 1200
+  @media (min-width: 1200px) {
+    // Header Specific
+    .nav--header & {
+      @apply ml-12;
+    }
+  }
+
+  // Dropdown Specific
+  .sub-menu & {
+    @apply mt-4 ml-0;
+  }
+
+  .sub-menu--mega & {
+    @apply mt-0;
+  }
+}
+
+// Dropdown
+.sub-menu {
+  @apply hidden list-reset;
+
+  // 1023 <=
+  @media (max-width: 1023px) {
+    @apply mt-8 pl-4;
+  }
+
+  // 1024
+  @media (min-width: 1024px) {
+    @apply absolute z-50 p-base w-64 bg-white;
+
+    top: 100%;
+    left: -15px;
+  }
+
+  // Open State
+  .menu-item[data-state="open"] & {
+    @apply block;
+  }
+
+  // Hover State
+  .menu-item:hover & {
+    // 1200
+    @media (min-width: 1200px) {
+      @apply block;
+    }
+  }
+}
+
+.sub-menu--mega {
+  // 1024
+  @media (min-width: 1024px) {
+    @apply w-mega;
+
+    left: auto;
+    right: -512px;
+  }
+
+  // Open State
+  .menu-item[data-state="open"] & {
+    // 1024
+    @media (min-width: 1024px) {
+      @apply block;
+    }
+  }
+
+  // Hover State
+  .menu-item:hover & {
+    // 1024
+    @media (min-width: 1024px) {
+      @apply block;
+    }
+  }
+}
+
+// Navigation Toggle
+.nav-toggle {
+  @apply absolute z-50 w-8 h-8 appearance-none;
+
+  top: 65px;
+  right: 15px;
+
+  // 1024
+  @media (min-width: 1024px) {
+    @apply hidden;
+  }
+}
+
+// Navigation Toggle Line
+.nav-toggle__line {
+  @apply block relative w-full h-1 mx-auto bg-primary-1;
+
+  transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition-duration: 0.32s;
+
+  &::before,
+  &::after {
+    content: "";
+    transition-duration: 0.32s;
+
+    @apply absolute pin-l pin-r w-full h-1 bg-primary-1;
+  }
+
+  &::before {
+    top: -10px;
+    transition: top 0.2s ease-in 0.25s, opacity 0.1s ease-in;
+
+    // Navigation Open
+    .nav-is-open & {
+      top: 0;
+      opacity: 0;
+      transition: top 0.2s ease-out, opacity 0.1s ease-out 0.12s;
+    }
+  }
+
+  &::after {
+    bottom: -10px;
+    transition: bottom 0.2s ease-in 0.25s,
+      transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
+    // Navigation Open
+    .nav-is-open & {
+      bottom: 0;
+      transform: rotate(-90deg);
+      transition: bottom 0.2s ease-out,
+        transform 0.32s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
+    }
+  }
+
+  // Navigation Open
+  .nav-is-open & {
+    transform: rotate(225deg);
+    transition-delay: 0.12s;
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+}

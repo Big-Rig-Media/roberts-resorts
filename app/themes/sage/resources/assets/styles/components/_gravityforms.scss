@@ -1,0 +1,49 @@
+// Custom Gravity Forms styling
+// Use at your own risk
+.gform_fields {
+  @apply pl-0;
+}
+
+.gfield {
+  @apply relative mb-4;
+
+  input,
+  textarea {
+    @apply w-full h-10 px-2 border border-solid border-grey;
+  }
+
+  textarea {
+    @apply h-32;
+  }
+
+  select {
+    @apply border border-solid border-grey rounded-none appearance-none;
+  }
+}
+
+.gfield_label {
+  @apply inline-block mb-1 text-xs font-medium text-white uppercase;
+}
+
+.gform_validation_container {
+  @apply hidden;
+}
+
+.gform_button {
+  @apply inline-block py-3 px-4 text-sm font-semibold text-white text-shadow uppercase no-underline bg-primary-2 cursor-pointer;
+
+  // Hover State
+  @media (hover: hover) {
+    &:hover {
+      @apply bg-primary-3;
+    }
+  }
+}
+
+.validation_error {
+  @apply mb-2 p-5 text-sm bg-red-lighter;
+}
+
+.validation_message {
+  @apply p-2 text-sm bg-red-lighter;
+}

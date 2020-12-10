@@ -1,0 +1,39 @@
+#################
+## Root
+#################
+/*
+!.gitignore
+!app/
+!data/
+
+#################
+## Ignore everything in the "app" directory, except the "plugins" and "themes" directories.
+#################
+app/*
+!app/themes/
+!app/mu-plugins/
+
+#################
+## Ignore everything in the "themes" directory, except the themes you specify
+#################
+app/themes/*
+!app/themes/sage/
+
+#################
+## Ignore everything in the "mu-plugins" directory, except the plugins you specify
+#################
+app/mu-plugins/*
+!app/mu-plugins/bigrigmedia.php
+
+#################
+## Theme files/folders
+#################
+app/themes/sage/.sass-cache/*
+app/themes/sage/bower_components/*
+app/themes/sage/node_modules/*
+app/themes/sage/vendor/*
+
+#################
+## OS X
+#################
+.DS_Store

@@ -1,0 +1,31 @@
+@switch( get_post($post->post_parent)->post_name )
+  @case('homes-for-sale')
+  @break
+  @default
+    @include('partials.resort-intro')
+  @break
+@endswitch
+
+@switch( $post->post_name )
+  @case('guest-specials')
+  @break
+  @case('homes-for-sale')
+    @include('partials.resort-homes-for-sale')
+  @break
+  @case('rv-sites')
+  @break
+  @case('vacation-rentals')
+  @break
+  @default
+    @include('partials.resort-portals')
+  @break
+@endswitch
+
+@switch( get_post($post->post_parent)->post_name )
+  @case('homes-for-sale')
+    @include('partials.resort-home')
+  @break
+  @default
+    @include('partials.sections')
+  @break
+@endswitch

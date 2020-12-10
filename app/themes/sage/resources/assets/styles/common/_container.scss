@@ -1,0 +1,14 @@
+// Container
+.container {
+  @apply w-full max-w-custom mx-auto px-base;
+}
+
+// Flex
+.container--flex {
+  @apply text-center;
+
+  // 1024
+  @media (min-width: 1024px) {
+    @apply flex flex-col flex-wrap items-center justify-center;
+  }
+}
