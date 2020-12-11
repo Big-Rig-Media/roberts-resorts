@@ -4,7 +4,13 @@
 @endphp
 
 @if( $portals )
-  @if( App::portals($portals) )
-    @include('partials.shortcodes.portals', ['portals' => App::portals($portals)])
+  @if( !is_singular('listings') )
+    @if( App::portals($portals) )
+      @include('partials.shortcodes.portals', ['portals' => App::portals($portals)])
+    @endif
+  @else
+    @if( SingleListings::portals($portals) )
+      @include('partials.shortcodes.portals', ['portals' => SingleListings::portals($portals)])
+    @endif
   @endif
 @endif

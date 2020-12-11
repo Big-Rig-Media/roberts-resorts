@@ -17,8 +17,8 @@ class SingleListings extends Controller
     public static function portals($parent)
     {
         $query = new \WP_Query([
-            'post_type'     => 'listings',
-            'post_parent'   => $parent
+            'post_type' => 'listings',
+            'post__in'  => $parent
         ]);
 
         if ( $query->have_posts() ) {

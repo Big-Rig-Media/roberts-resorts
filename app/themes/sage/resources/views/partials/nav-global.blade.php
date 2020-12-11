@@ -59,6 +59,7 @@
                   <label class="block w-full mb-2 font-semibold text-white text-shadow uppercase" for="check-out">Check-Out</label>
                   <input class="w-full h-10 max-h-input px-6 bg-white" type="date" name="check-out" />
                 </div>
+                <input class="hidden" type="input" name="adults" value="2" />
                 <input class="inline-block w-full md:w-auto mb-3 md:mb-0 py-3 px-4 text-sm font-semibold text-white text-shadow uppercase no-underline bg-primary-3 cursor-pointer" type="submit" name="reserve" value="Check Availability" />
                 <input class="inline-block w-full md:w-auto md:ml-2 py-3 px-4 text-sm font-semibold text-white text-shadow uppercase no-underline bg-primary-3 cursor-pointer" type="submit" name="explore" value="View Resort" />
               </div>

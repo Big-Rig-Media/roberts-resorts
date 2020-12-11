@@ -17,7 +17,6 @@
   @case('vacation-rentals')
   @break
   @default
-    @include('partials.resort-portals')
   @break
 @endswitch
 
