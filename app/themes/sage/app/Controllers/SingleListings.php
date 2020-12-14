@@ -160,6 +160,18 @@ class SingleListings extends Controller
     }
 
     /**
+     * Get lot address
+     */
+    public static function lotAddress($home)
+    {
+        if ( $home ) {
+            return get_field('address', $home);
+        }
+
+        return;
+    }
+
+    /**
      * Get lot number
      */
     public static function lotNumber($home)

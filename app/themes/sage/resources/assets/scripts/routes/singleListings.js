@@ -41,27 +41,28 @@ export default {
     }
 
     // Handle carousel
-    if ($('.js-homes-carousel').length && $('.js-homes-carousel-nav').length) {
-      $('.js-homes-carousel').slick({
-        asNavFor: '.js-homes-carousel-nav',
+    if ($('.js-carousel-homes').length && $('.js-carousel-homes-nav').length) {
+      $('.js-carousel-homes').slick({
         accessibility: true,
         adaptiveHeight: false,
         autoplay: true,
         autoplaySpeed: 15000,
         arrows: false,
-        fade: false,
+        fade: true,
         pauseOnFocus: false,
         pauseOnHover: false,
         speed: 1000,
         slidesToShow: 1,
         slidesToScroll: 1,
+        asNavFor: '.js-carousel-homes-nav',
       })
 
-      $('.js-homes-carousel-nav').slick({
-        asNavFor: '.js-homes-carousel',
+      $('.js-carousel-homes-nav').slick({
         arrows: false,
+        focusOnSelect: true,
         slidesToShow: 4,
         slidesToScroll: 4,
+        asNavFor: '.js-carousel-homes',
       })
     }
   },

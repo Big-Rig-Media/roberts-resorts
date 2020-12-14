@@ -155,3 +155,59 @@ function display_sidebar()
     isset($display) || $display = apply_filters('sage/display_sidebar', false);
     return $display;
 }
+
+/**
+ * Determine whether to show the resort hero meta
+ * @return bool
+ */
+function display_hero_meta($slug)
+{
+    if ( $slug ) {
+        $slugs = [
+            'amenities',
+            'gallery',
+            'guest-info',
+            'contact',
+            'homes-for-sale',
+            'rv-sites',
+            'vacation-rentals',
+            'rates',
+            'activities',
+            'specials',
+            'lots-for-sale',
+            'attractions',
+        ];
+
+        return in_array($slug, $slugs);
+    }
+
+    return;
+}
+
+/**
+ * Determine whether to show the resort booking form
+ * @return bool
+ */
+function display_hero_booking_form($slug)
+{
+    if ( $slug ) {
+        $slugs = [
+            'amenities',
+            'gallery',
+            'guest-info',
+            'contact',
+            'homes-for-sale',
+            'rv-sites',
+            'vacation-rentals',
+            'rates',
+            'activities',
+            'specials',
+            'lots-for-sale',
+            'attractions',
+        ];
+
+        return in_array($slug, $slugs);
+    }
+
+    return;
+}

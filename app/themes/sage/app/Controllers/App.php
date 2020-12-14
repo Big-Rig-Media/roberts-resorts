@@ -318,6 +318,9 @@ class App extends Controller
                 case 'w732x400':
                     $placeholder = '/app/uploads/2020/12/w732x400.png';
                 break;
+                case 'w716x500':
+                    $placeholder = '/app/uploads/2020/12/w716x500.png';
+                break;
                 case 'w636x636':
                     $placeholder = '/app/uploads/2020/12/w636x636.png';
                 break;
@@ -342,6 +345,9 @@ class App extends Controller
         return;
     }
 
+    /**
+     * Get portal pages
+     */
     public static function portals($pages)
     {
         $query = new \WP_Query([
@@ -356,6 +362,9 @@ class App extends Controller
         return;
     }
 
+    /**
+     * Get resort campspot slug
+     */
     public static function resortCampspotSlug($resort)
     {
         if ( $resort ) {
@@ -363,5 +372,31 @@ class App extends Controller
         }
 
         return;
+    }
+
+    /**
+     * Get brand url
+     */
+    public static function brandURL()
+    {
+        global $post;
+
+        $ancestors = get_ancestors(get_queried_object_id(), 'listings');
+
+        if ( is_singular('listings') ) {
+            switch ( count($ancestors) ) {
+                case 0:
+                    return get_permalink($post->ID);
+                break;
+                case 1:
+                    return get_permalink($post->post_parent);
+                break;
+                case 2:
+                    return get_permalink(get_post($ancestors[1])->ID);
+                break;
+            }
+        } else {
+            return home_url('/');
+        }
     }
 }

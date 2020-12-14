@@ -1,4 +1,8 @@
-@switch( get_post($post->post_parent)->post_name )
+@php
+  $parent = get_post($post->post_parent);
+@endphp
+
+@switch( $parent->post_name )
   @case('homes-for-sale')
   @break
   @default
@@ -20,7 +24,7 @@
   @break
 @endswitch
 
-@switch( get_post($post->post_parent)->post_name )
+@switch( $parent->post_name )
   @case('homes-for-sale')
     @include('partials.resort-home')
   @break

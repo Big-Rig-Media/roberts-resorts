@@ -30,6 +30,14 @@
       @endif
       <li class="menu-item menu-item-homes-lots-for-sale menu-item-has-children" data-state="closed">
         <a href="javascript:void(0)">Homes & Lots for Sale</a>
+        <ul class="sub-menu">
+          <li class="menu-item">
+            <a href="{{ get_permalink(142) }}">Home Listings</a>
+          </li>
+          <li class="menu-item">
+            <a href="{{ get_permalink(144) }}">Lot Listings</a>
+          </li>
+        </ul>
       </li>
       <li class="menu-item menu-item-specials">
         <a href="{{ get_permalink(203) }}">Specials</a>

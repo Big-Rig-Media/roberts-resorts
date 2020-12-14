@@ -1,7 +1,7 @@
 <footer class="py-8 md:py-16 text-white bg-primary-1">
   <div class="container">
     <div class="md:grid md:grid-footer md:gap-30">
-      <a class="inline-block w-full max-w-brand" href="{{ home_url('/') }}" title="Go Home">
+      <a class="inline-block w-full max-w-brand" href="{{ App::brandURL() }}" title="Go Home">
         <img src="/app/uploads/2020/12/roberts-resorts-logo-white.svg" alt="{{ get_bloginfo('name', 'display') }}">
       </a>
       <div class="mt-8 md:mt-0">

@@ -102,6 +102,7 @@ export default {
       }, 5000)
     }
 
+    // Handle hero carousel
     if ($('.js-carousel-hero').length) {
       $('.js-carousel-hero').slick({
         accessibility: true,
@@ -116,6 +117,24 @@ export default {
         slidesToShow: 1,
         slidesToScroll: 1,
       });
+    }
+
+    //  Handle videos carousel
+    if ($('.js-carousel-videos').length) {
+      if (window.matchMedia('(max-width: 1023px)').matches) {
+        $('.js-carousel-videos').slick({
+          accessibility: true,
+          adaptiveHeight: false,
+          autoplay: true,
+          autoplaySpeed: 15000,
+          arrows: false,
+          pauseOnFocus: false,
+          pauseOnHover: false,
+          speed: 1000,
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        });
+      }
     }
 
     // Find all YouTube videos

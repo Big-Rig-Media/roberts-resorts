@@ -1,3 +1,4 @@
+@php $ancestors = get_ancestors(get_queried_object_id(), 'listings'); @endphp
 <header class="border-b border-gray">
   <div class="md:py-4 bg-primary-1">
     <div class="w-full max-w-custom mx-auto px-base">
@@ -12,8 +13,8 @@
     </div>
   </div>
   <div class="bg-white">
-    <div class="md:flex md:flex-row md:flex-no-wrap md:items-stretch md:justify-between relative w-full max-w-custom mx-auto px-base">
-      <a class="inline-block w-full max-w-brand py-6" href="{{ home_url('/') }}" title="Go Home">
+    <div class="flex flex-row flex-wrap md:flex-no-wrap md:items-stretch justify-center md:justify-between relative w-full max-w-custom mx-auto px-base">
+      <a class="inline-block w-full max-w-brand-mobile lg:max-w-brand py-6 brand" href="{{ App::brandURL() }}" title="Go Home">
         @if(get_option('branding'))
           <img src="{{ get_option('branding') }}" alt="{{ get_bloginfo('name', 'display') }}">
         @else

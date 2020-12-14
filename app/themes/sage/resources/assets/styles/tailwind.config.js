@@ -218,6 +218,7 @@ module.exports = {
   textSizes: {
     'xs': '.75rem',      // 12px
     'sm': '1rem',        // 16px
+    '2sm': '1.125rem',   // 18px
     'base': '1.3125rem', // 21px
     'lg': '1.3125rem',   // 21px
     'xl': '1.5625rem',   // 25px
@@ -577,6 +578,7 @@ module.exports = {
     '5xl': '100rem',
     'full': '100%',
     'custom': '93.75rem',
+    'brand-mobile': '12.5rem',
     'brand': '15.1875rem',
   },
 
@@ -799,6 +801,7 @@ module.exports = {
   svgFill: {
     'current': 'currentColor',
     'white': colors['white'],
+    'primary-1': colors['primary-1'],
   },
 
 
@@ -916,11 +919,20 @@ module.exports = {
           display: 'grid',
           placeItems: 'center'
         },
+        '.grid-cols-2': {
+          gridTemplateColumns: 'repeat(2,1fr)',
+        },
         '.grid-cols-3': {
           gridTemplateColumns: 'repeat(3,1fr)',
         },
         '.grid-cols-4': {
           gridTemplateColumns: 'repeat(4,1fr)',
+        },
+        '.grid-cols-5': {
+          gridTemplateColumns: 'repeat(5,1fr)',
+        },
+        '.grid-cols-6': {
+          gridTemplateColumns: 'repeat(6,1fr)',
         },
         '.grid-find-resort': {
           gridTemplateColumns: '3fr 2fr',

@@ -39,6 +39,28 @@ add_shortcode('column', function($atts, $content = null) {
 });
 
 /**
+ * Amenities
+ *
+ * @param   array   $atts
+ */
+add_shortcode('amenities', function($atts, $content = null)  {
+    extract(shortcode_atts([
+        'columns' => 5,
+    ], $atts));
+
+    return '<div class="md:grid md:grid-cols-'.$columns.' md:gap-15">'.do_shortcode($content).'</div>';
+});
+
+/**
+ * Amenity
+ *
+ * @param   array   $atts
+ */
+add_shortcode('amenity', function($atts, $content = null) {
+    return '<div class="text-center">'.do_shortcode($content).'</div>';
+});
+
+/**
  * Custom image sizes
  *
  * @link    https://developer.wordpress.org/reference/functions/add_image_size/
@@ -52,6 +74,7 @@ $custom_sizes = [
     'w960x800'  => [960, 800, true],
     'w960x600'  => [960, 600, true],
     'w732x400'  => [732, 400, true],
+    'w716x500'  => [716, 500, true],
     'w636x636'  => [636, 636, true],
     'w497x335'  => [497, 335, true],
     'w366x200'  => [366, 200, true],

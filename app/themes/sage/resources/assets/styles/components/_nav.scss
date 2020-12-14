@@ -36,7 +36,12 @@
       }
 
       > a {
-        @apply text-base font-semibold text-primary-1 uppercase;
+        @apply text-2sm font-semibold text-primary-1 uppercase;
+
+        // 1366
+        @media (min-width: 1336px) {
+          @apply text-base;
+        }
       }
     }
   }
@@ -185,6 +190,11 @@
     @apply w-mega;
 
     left: auto;
+    right: -606px;
+  }
+
+  // 1366
+  @media (min-width: 1366px) {
     right: -512px;
   }
 }

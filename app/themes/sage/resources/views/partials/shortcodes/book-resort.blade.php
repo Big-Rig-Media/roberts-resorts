@@ -11,7 +11,7 @@
           <label class="block w-full mb-2 font-semibold text-white text-shadow uppercase" for="check-out">Check-Out</label>
           <input class="w-full h-10 max-h-input px-6 bg-white" type="date" name="check-out" />
         </div>
-        <div class="flex flex-column flex-wrap w-full md:max-w-xs md:mr-3 mb-3 md:mb-0">
+        <div class="flex flex-column flex-wrap w-full md:max-w-xxs lg:max-w-xs md:mr-3 mb-3 md:mb-0">
           <label class="block w-full mb-2 font-semibold text-white text-shadow uppercase" for="adults">Adults</label>
           <select class="w-full h-10 max-h-input px-6 bg-white" name="adults">
             <option selected>Please Select</option>
@@ -21,7 +21,7 @@
             <option value="8">8</option>
           </select>
         </div>
-        <input type="hidden" name="resort" value="{{ App::resortCampspotSlug($post) }}" />
+        <input type="hidden" name="resort" value="{{ $post->post_parent === 0 ? App::resortCampspotSlug($post) : App::resortCampspotSlug($post->post_parent) }}" />
         <input class="inline-block w-full md:w-auto md:ml-2 px-4 h-10 text-sm font-semibold text-white text-shadow uppercase no-underline bg-primary-2 cursor-pointer" type="submit" name="reserve" value="Reserve Now" />
       </div>
     </form>
