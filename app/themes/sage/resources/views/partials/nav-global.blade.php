@@ -1,4 +1,4 @@
-@if( ( is_front_page() || is_page() ) && !is_singular('listings') )
+@if( ( is_front_page() || is_page() || is_home() || is_single() || is_category() ) && !is_singular('listings') )
   <nav class="nav nav--header mb-4 md:mb-0">
     <ul class="nav__list">
       @if( App::resorts() )

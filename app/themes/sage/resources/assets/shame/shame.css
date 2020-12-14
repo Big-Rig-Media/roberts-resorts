@@ -7,3 +7,30 @@
  *
  * Remember to enque the file in the assets function in app/setup.php
  */
+
+.widget {
+  padding: 30px;
+  color: white;
+  background-color: #496387;
+}
+
+.widget ul {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.widget li {
+  margin-bottom: 10px;
+}
+
+.widget li a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+.cat-item {
+  font-size: 1.3125rem;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+}

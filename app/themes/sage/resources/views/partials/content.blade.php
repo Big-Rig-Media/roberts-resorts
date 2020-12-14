@@ -14,7 +14,7 @@
   </div>
   <div class="post__body">
     <header class="post__header">
-      <h2 class="post__title"><a href="{{ get_permalink() }}">{!! get_the_title() !!}</a></h2>
+      <h3 class="post__title"><a href="{{ get_permalink() }}">{!! get_the_title() !!}</a></h3>
       @include('partials/entry-meta')
     </header>
     <div class="post__summary">

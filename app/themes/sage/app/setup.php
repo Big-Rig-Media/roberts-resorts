@@ -29,7 +29,7 @@ add_action('wp_enqueue_scripts', function () {
         wp_enqueue_script('comment-reply');
     }
 
-    //wp_enqueue_style('sage/shame.css', get_stylesheet_directory_uri() . '/assets/shame/shame.css', false, null);
+    wp_enqueue_style('sage/shame.css', get_stylesheet_directory_uri() . '/assets/shame/shame.css', false, null);
     //wp_enqueue_script('sage/shame.js', get_stylesheet_directory_uri() . '/assets/shame/shame.js', ['jquery'], null, true);
 }, 100);
 
@@ -127,10 +127,10 @@ add_action('after_setup_theme', function () {
  */
 add_action('widgets_init', function () {
     $config = [
-        'before_widget' => '<section class="widget %1$s %2$s">',
+        'before_widget' => '<section class="widget %1$s %2$s mb-5">',
         'after_widget'  => '</section>',
-        'before_title'  => '<h3>',
-        'after_title'   => '</h3>'
+        'before_title'  => '<h5>',
+        'after_title'   => '</h5>'
     ];
     register_sidebar([
         'name'          => __('Primary', 'sage'),
