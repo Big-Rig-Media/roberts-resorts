@@ -61,6 +61,28 @@ add_shortcode('amenity', function($atts, $content = null) {
 });
 
 /**
+ * Rates
+ *
+ * @param   array   $atts
+ */
+add_shortcode('rates', function($atts, $content = null)  {
+    extract(shortcode_atts([
+        'columns' => 5,
+    ], $atts));
+
+    return '<div class="md:grid md:grid-cols-'.$columns.' md:gap-15">'.do_shortcode($content).'</div>';
+});
+
+/**
+ * Rate
+ *
+ * @param   array   $atts
+ */
+add_shortcode('rate', function($atts, $content = null) {
+    return '<div class="relative p-8 text-center shadow-md">'.do_shortcode($content).'</div>';
+});
+
+/**
  * Custom image sizes
  *
  * @link    https://developer.wordpress.org/reference/functions/add_image_size/

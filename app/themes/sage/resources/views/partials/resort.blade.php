@@ -4,6 +4,8 @@
 
 @switch( $parent->post_name )
   @case('homes-for-sale')
+  @case('rv-lots-for-sale')
+  @case('vacation-rentals')
   @break
   @default
     @include('partials.resort-intro')
@@ -11,14 +13,10 @@
 @endswitch
 
 @switch( $post->post_name )
-  @case('guest-specials')
-  @break
   @case('homes-for-sale')
-    @include('partials.resort-homes-for-sale')
-  @break
-  @case('rv-sites')
-  @break
+  @case('rv-lots-for-sale')
   @case('vacation-rentals')
+    @include('partials.resort-listings')
   @break
   @default
   @break
@@ -26,7 +24,9 @@
 
 @switch( $parent->post_name )
   @case('homes-for-sale')
-    @include('partials.resort-home')
+  @case('rv-lots-for-sale')
+  @case('vacation-rentals')
+    @include('partials.resort-listing')
   @break
   @default
     @include('partials.sections')

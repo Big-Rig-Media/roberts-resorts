@@ -22,15 +22,12 @@
 
 .widget li {
   margin-bottom: 10px;
+  font-size: 1.3125rem;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
 }
 
 .widget li a {
   color: currentColor;
   text-decoration: none;
-}
-
-.cat-item {
-  font-size: 1.3125rem;
-  line-height: 1.5;
-  letter-spacing: 0.05em;
 }

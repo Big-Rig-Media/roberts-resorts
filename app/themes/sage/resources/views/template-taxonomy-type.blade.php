@@ -5,11 +5,18 @@
 @extends('layouts.app')
 
 @section('content')
+  @if( $post->post_content )
+    <section class="py-8 md:pt-16">
+      <div class="container">
+        @php the_content() @endphp
+      </div>
+    </section>
+  @endif
   @php
     $object = get_queried_object();
   @endphp
   @if( TemplateTaxonomyType::getListings($object->post_name) )
-    <section class="py-16">
+    <section class="pb-16">
       <div class="container">
         <div class="md:grid md:grid-cols-3 md:gap-15">
           @foreach( TemplateTaxonomyType::getListings($object->post_name) as $listing )

@@ -98,23 +98,25 @@
         @endif
       </div>
       <aside class="md:sticky md:pin-t md:w-1/3">
-        <div class="md:ml-5 mb-5 px-5 py-10 text-white bg-primary-3">
-          @if( SingleListings::agent($post) )
-            <h4>Agent: {{ SingleListings::agent($post) }}</h4>
-          @endif
-          @if( SingleListings::agentPhone($post) )
-            <span class="flex flex-row flex-no-wrap items-center my-8 text-base">
-              <svg class="w-6 h-6 mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21"><path d="M20.239 1.048L15.98.065a.989.989 0 00-1.125.57L12.89 5.219a.98.98 0 00.282 1.146l2.48 2.03A15.171 15.171 0 018.4 15.65l-2.03-2.481a.981.981 0 00-1.147-.282L.64 14.85a.994.994 0 00-.574 1.13l.983 4.258a.982.982 0 00.958.761C12.489 21 21 12.506 21 2.006a.981.981 0 00-.761-.958z" fill="#FFF" fill-rule="nonzero"/></svg>
-              <a class="text-white no-underline" href="tel:{{ preg_replace('/[^0-9]/', '', SingleListings::agentPhone($post)) }}">{{ SingleListings::agentPhone($post) }}</a>
-            </span>
-          @endif
-          @if( SingleListings::agentEmail($post) )
-            <span class="flex flex-row flex-no-wrap items-center text-base">
-              <svg class="w-6 h-6 mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 17"><path d="M22.564 5.614c.175-.138.436-.01.436.208v9.053C23 16.048 22.034 17 20.844 17H2.156C.966 17 0 16.048 0 14.875V5.826c0-.221.256-.345.436-.208 1.006.77 2.34 1.749 6.922 5.03.948.68 2.547 2.115 4.142 2.106 1.604.014 3.234-1.452 4.146-2.107 4.582-3.28 5.912-4.263 6.918-5.033zM11.5 11.334c1.042.017 2.543-1.293 3.297-1.833 5.961-4.264 6.415-4.636 7.79-5.698.26-.2.413-.51.413-.837v-.841C23 .952 22.034 0 20.844 0H2.156C.966 0 0 .952 0 2.125v.841c0 .328.153.633.413.837C1.788 4.86 2.242 5.237 8.203 9.5c.754.54 2.255 1.85 3.297 1.832z" fill="#FFF" fill-rule="nonzero"/></svg>
-              <a class="text-white no-underline" href="mailto:{{ SingleListings::agentEmail($post) }}">{{ SingleListings::agentEmail($post) }}</a>
-            </span>
-          @endif
-        </div>
+        @if( SingleListings::agent($post) || SingleListings::agentEmail($post) )
+          <div class="md:ml-5 mb-5 px-5 py-10 text-white bg-primary-3">
+            @if( SingleListings::agent($post) )
+              <h4>Agent: {{ SingleListings::agent($post) }}</h4>
+            @endif
+            @if( SingleListings::agentPhone($post) )
+              <span class="flex flex-row flex-no-wrap items-center my-8 text-base">
+                <svg class="w-6 h-6 mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21"><path d="M20.239 1.048L15.98.065a.989.989 0 00-1.125.57L12.89 5.219a.98.98 0 00.282 1.146l2.48 2.03A15.171 15.171 0 018.4 15.65l-2.03-2.481a.981.981 0 00-1.147-.282L.64 14.85a.994.994 0 00-.574 1.13l.983 4.258a.982.982 0 00.958.761C12.489 21 21 12.506 21 2.006a.981.981 0 00-.761-.958z" fill="#FFF" fill-rule="nonzero"/></svg>
+                <a class="text-white no-underline" href="tel:{{ preg_replace('/[^0-9]/', '', SingleListings::agentPhone($post)) }}">{{ SingleListings::agentPhone($post) }}</a>
+              </span>
+            @endif
+            @if( SingleListings::agentEmail($post) )
+              <span class="flex flex-row flex-no-wrap items-center text-base">
+                <svg class="w-6 h-6 mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 17"><path d="M22.564 5.614c.175-.138.436-.01.436.208v9.053C23 16.048 22.034 17 20.844 17H2.156C.966 17 0 16.048 0 14.875V5.826c0-.221.256-.345.436-.208 1.006.77 2.34 1.749 6.922 5.03.948.68 2.547 2.115 4.142 2.106 1.604.014 3.234-1.452 4.146-2.107 4.582-3.28 5.912-4.263 6.918-5.033zM11.5 11.334c1.042.017 2.543-1.293 3.297-1.833 5.961-4.264 6.415-4.636 7.79-5.698.26-.2.413-.51.413-.837v-.841C23 .952 22.034 0 20.844 0H2.156C.966 0 0 .952 0 2.125v.841c0 .328.153.633.413.837C1.788 4.86 2.242 5.237 8.203 9.5c.754.54 2.255 1.85 3.297 1.832z" fill="#FFF" fill-rule="nonzero"/></svg>
+                <a class="text-white no-underline" href="mailto:{{ SingleListings::agentEmail($post) }}">{{ SingleListings::agentEmail($post) }}</a>
+              </span>
+            @endif
+          </div>
+        @endif
         <div class="md:ml-5 mb-5 px-5 py-10 bg-primary-1">
           {!! do_shortcode('[gravityform id="1" title="false" description="false"]') !!}
         </div>

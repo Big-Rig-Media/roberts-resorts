@@ -1,25 +1,27 @@
 export default {
   init() {
     // JavaScript to be fired on the home page
-    const form = document.querySelector('.js-book-resorts')
+    const forms = document.querySelectorAll('.js-book-resorts')
 
     // Handle form submission
-    if (form) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault()
+    if (forms) {
+      forms.forEach(form => {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault()
 
-        if ( e.submitter.name !== 'explore' ) {
-          const resort = e.target['resort'].value
-          const checkIn = e.target['check-in'].value
-          const checkOut = e.target['check-out'].value
-          const adults = e.target['adults'].value
+          if ( e.submitter.name !== 'explore' ) {
+            const resort = e.target['resort'].value
+            const checkIn = e.target['check-in'].value
+            const checkOut = e.target['check-out'].value
+            const adults = e.target['adults'].value
 
-          window.open(`https://www.campspot.com/book/${resort}/search/${checkIn}/${checkOut}/guests${adults},0,0`)
-        } else {
-          const resort = e.target['resort'].options[e.target['resort'].selectedIndex].dataset.slug
+            window.open(`https://www.campspot.com/book/${resort}/search/${checkIn}/${checkOut}/guests${adults},0,0`)
+          } else {
+            const resort = e.target['resort'].options[e.target['resort'].selectedIndex].dataset.slug
 
-          window.location.replace(`/resorts/${resort}`)
-        }
+            window.location.replace(`/resorts/${resort}`)
+          }
+        })
       })
     }
 

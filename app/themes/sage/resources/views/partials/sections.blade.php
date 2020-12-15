@@ -18,6 +18,8 @@
         @include('partials.section-portals', [$i, $section_state])
       @elseif( get_sub_field('section_builder_type') === 'carousel' )
         @include('partials.section-carousel', [$i, $section_state])
+      @elseif( get_sub_field('section_builder_type') === 'specials' )
+        @include('partials.section-specials', [$i, $section_state])
       @endif
       @php $i++ @endphp
     @endwhile

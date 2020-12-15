@@ -15,7 +15,7 @@
           'title'         => $resort->post_title,
           'image'         => App::featuredImage($resort, 'w331x152'),
           'slug'          => $resort->post_name,
-          'campspotSlug'  => App::resortCampspotSlug($resort) ?: '#',
+          'campspotSlug'  => App::resortCampspotSlug($resort),
           'icon'          => '/app/uploads/2020/12/marker.png'
         ];
       }
@@ -41,7 +41,7 @@
           position: google.maps.ControlPosition.LEFT_TOP
         },
         streetViewControl: false,
-        draggable: false,
+        draggable: true,
         scaleControl: false,
         disableDefaultUI: true,
       })
@@ -86,20 +86,35 @@
     const markerEvent = (marker, content) => {
       infoWindow = new google.maps.InfoWindow
 
+      let html
+
+      if (content.campspotSlug) {
+        html =  `<div class="font-metropolis">
+                  <a href="/resorts/${content.slug}">
+                    <img src="${content.image}" alt="${content.title}" />
+                  </a>
+                  <h4 class="mb-1">${content.title}</h4>
+                  <span class="text-sm">${content.city}, ${content.state} ${content.zipcode}</span>
+                  <div class="mt-4">
+                    <a class="inline-block py-3 px-4 text-sm font-semibold text-white text-shadow uppercase no-underline bg-primary-1" href="/resorts/${content.slug}">View Resort</a>
+                    <a class="inline-block py-3 px-4 text-sm font-semibold text-white text-shadow uppercase no-underline bg-primary-2" href="https://www.campspot.com/book/${content.campspotSlug}">Book Now</a>
+                  </div>
+                </div>`
+      } else {
+        html =  `<div class="font-metropolis">
+                  <a href="/resorts/${content.slug}">
+                    <img src="${content.image}" alt="${content.title}" />
+                  </a>
+                  <h4 class="mb-1">${content.title}</h4>
+                  <span class="text-sm">${content.city}, ${content.state} ${content.zipcode}</span>
+                  <div class="mt-4">
+                    <a class="inline-block py-3 px-4 text-sm font-semibold text-white text-shadow uppercase no-underline bg-primary-1" href="/resorts/${content.slug}">View Resort</a>
+                  </div>
+                </div>`
+      }
+
       marker.addListener('click', () => {
-        infoWindow.setContent(`
-          <div class="font-metropolis">
-            <a href="/resorts/${content.slug}">
-              <img src="${content.image}" alt="${content.title}" />
-            </a>
-            <h4 class="mb-1">${content.title}</h4>
-            <span class="text-sm">${content.city}, ${content.state} ${content.zipcode}</span>
-            <div class="mt-4">
-              <a class="inline-block py-3 px-4 text-sm font-semibold text-white text-shadow uppercase no-underline bg-primary-1" href="/resorts/${content.slug}">View Resort</a>
-              <a class="inline-block py-3 px-4 text-sm font-semibold text-white text-shadow uppercase no-underline bg-primary-2" href="https://www.campspot.com/book/${content.campspotSlug}">Book Now</a>
-            </div>
-          </div>
-        `)
+        infoWindow.setContent(html)
         infoWindow.open(map, marker)
       })
     }

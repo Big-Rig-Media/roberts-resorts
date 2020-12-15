@@ -29,9 +29,9 @@ class SingleListings extends Controller
     }
 
     /**
-     * Get resort homes
+     * Get resort child type listings
      */
-    public static function homes($parent)
+    public static function listings($parent)
     {
         $query = new \WP_Query([
             'post_type'     => 'listings',
@@ -234,6 +234,31 @@ class SingleListings extends Controller
     {
         if ( $resort ) {
             return get_field('home_rentals_phone', $resort);
+        }
+
+        return;
+    }
+
+    public static function specials($slug)
+    {
+        if ( $slug ) {
+            $query = new \WP_Query([
+                'post_type'         => 'specials',
+                'posts_per_page'    => -1,
+                'tax_query' => [
+                    [
+                        'taxonomy' => 'resort',
+                        'field'    => 'slug',
+                        'terms'    => $slug
+                    ]
+                ]
+            ]);
+
+            if ( $query->have_posts() ) {
+                return $query->posts;
+            }
+
+            return;
         }
 
         return;
