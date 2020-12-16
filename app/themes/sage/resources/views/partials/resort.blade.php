@@ -18,6 +18,8 @@
   @case('vacation-rentals')
     @include('partials.resort-listings')
   @break
+  @case('specials')
+    @include('partials.resort-specials')
   @default
   @break
 @endswitch

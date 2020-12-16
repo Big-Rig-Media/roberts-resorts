@@ -167,3 +167,11 @@ function pagination( $query ) {
 
     return;
 }
+
+add_filter('nav_menu_meta_box_object', function($obj) {
+    $obj->_default_query = [
+        'posts_per_page' => -1
+    ];
+
+    return $obj;
+});

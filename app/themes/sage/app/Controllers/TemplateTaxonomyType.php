@@ -7,7 +7,7 @@ use Sober\Controller\Controller;
 /**
  * TemplateTaxonomyType
  *
- * Methods available only on the static front page
+ * Methods available only on the taxonomy type template page
  */
 class TemplateTaxonomyType extends Controller
 {

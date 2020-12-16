@@ -883,7 +883,7 @@ module.exports = {
     tableLayout: false,
     textAlign: [],
     textColors: [],
-    textSizes: [],
+    textSizes: ['responsive'],
     textStyle: [],
     tracking: [],
     userSelect: false,

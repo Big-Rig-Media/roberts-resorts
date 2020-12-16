@@ -8,7 +8,7 @@ add_action('init', function() {
     register_post_type('specials', [
         'label'               	=> 'Specials',
         'public'              	=> true,
-        'publicly_queryable'  	=> true,
+        'publicly_queryable'  	=> false,
         'show_ui'             	=> true,
         'show_in_menu'        	=> true,
         'query_var'           	=> true,
@@ -17,7 +17,7 @@ add_action('init', function() {
         'has_archive'         	=> false,
         'hierarchical'        	=> true,
         'menu_position'       	=> null,
-        'menu_icon'           	=> 'data:image/svg+xml;base64,' . base64_encode( '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#a0a5aa" d="M568 32h-16a8 8 0 00-8 8v19.33L32 179.8V168a8 8 0 00-8-8H8a8 8 0 00-8 8v176a8 8 0 008 8h16a8 8 0 008-8v-11.8l130.58 30.72a93.84 93.84 0 00-2.58 21.07 96 96 0 0096 96c45.13 0 82.45-31.3 92.64-73.29L544 452.67V472a8 8 0 008 8h16a8 8 0 008-8V40a8 8 0 00-8-8zM256 448c-35.29 0-64-28.71-64-64 0-4.75.72-9.31 1.76-13.74l124.13 29.21C310.92 427.27 285.93 448 256 448zM32 299.33v-86.66L544 92.2v327.6L32 299.33z"/></svg>'),
+        'menu_icon'           	=> 'data:image/svg+xml;base64,' . base64_encode( '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#a0a5aa" d="M32 176a32 32 0 00-32 32v96a32 32 0 0032 32c11.38 0 20.9-6.28 26.57-15.22l106.99 32.3c-3.35 9.76-5.56 20.04-5.56 30.92 0 52.94 43.06 96 96 96 44.49 0 81.66-30.57 92.5-71.7L480 448V64L58.57 191.22C52.9 182.28 43.38 176 32 176zm179.29 190.88l91.47 27.61C297.95 415.92 278.85 432 256 432c-26.47 0-48-21.53-48-48 0-6.05 1.24-11.79 3.29-17.12zM560 32h-32a16 16 0 00-16 16v416a16 16 0 0016 16h32a16 16 0 0016-16V48a16 16 0 00-16-16z"/></svg>'),
         'supports'            	=> [ 'editor','title','thumbnail' ],
         'show_in_rest'		    => true,
         'show_in_graphql'		=> true,
