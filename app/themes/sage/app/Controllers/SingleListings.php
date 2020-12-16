@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use Sober\Controller\Controller;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 /**
  * SingleListings
@@ -262,5 +264,88 @@ class SingleListings extends Controller
         }
 
         return;
+    }
+
+    public static function createPDF($listing)
+    {
+        $ancestors = get_ancestors(get_queried_object_id(), 'listings');
+
+        $dompdf = new Dompdf();
+        $options = new Options();
+
+        $options->set('isHtml5ParserEnabled', true);
+        $options->set('defaultFont', 'Helvetica');
+
+        // HTML to convert to PDF
+        $html = '<!doctype html>
+                    <html>
+                        <head>
+                            <style type="text/css">
+                                html {
+                                    height: 100%;
+                                }
+                                body {
+                                    min-height: 100%;
+                                    font-size: 16px;
+                                    font-family: Helvetica;
+                                    color: #232f40;
+                                }
+                                ul {
+                                    margin-top: 0;
+                                    margin-bottom: 0;
+                                    padding-left: 0;
+                                    list-style-type: none;
+                                }
+                                li {
+                                    margin-bottom: 15px;
+                                }
+                            </style>
+                        </head>
+                        <body>
+                            <h1>'.$listing->post_title.'</h1>
+                            <ul>
+                                <li>
+                                    <strong>Price:</strong>
+                                    &#36;'.self::price($listing).'
+                                </li>
+                                <li>
+                                    <strong>Community:</strong>
+                                    '.get_post($ancestors[1])->post_title.'
+                                </li>
+                                <li>
+                                    <strong>Agent:</strong>
+                                    '.self::agent($listing).'
+                                </li>
+                                <li>
+                                    <strong>Agent Phone:</strong>
+                                    '.self::agentPhone($listing).'
+                                </li>
+                                <li>
+                                    <strong>Agent Email:</strong>
+                                    '.self::agentEmail($listing).'
+                                </li>
+                                <li>
+                                    <strong>Status:</strong>
+                                    '.self::status($listing).'
+                                </li>
+                                <li>
+                                    <strong>Bd/Ba:</strong>
+                                    '.self::bedrooms($listing).'
+                                </li>
+                                <li>
+                                    <strong>Sq. Ft:</strong>
+                                    '.self::sqft($listing).'
+                                    Square Feet
+                                </li>
+                            </ul>
+                        </body>
+                    </html>';
+
+        // Render out PDF
+        $dompdf->loadHTML($html);
+        $dompdf->render();
+
+        // Save PDF into tearsheets directory
+        file_put_contents($_SERVER["DOCUMENT_ROOT"].'/app/uploads/listings/'.$listing->post_name.'.pdf', $dompdf->output());
     }
 }
