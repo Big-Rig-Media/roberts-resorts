@@ -36,8 +36,9 @@ class SingleListings extends Controller
     public static function listings($parent)
     {
         $query = new \WP_Query([
-            'post_type'     => 'listings',
-            'post_parent'   => $parent
+            'post_type'         => 'listings',
+            'posts_per_page'    => -1,
+            'post_parent'       => $parent
         ]);
 
         if ( $query->have_posts() ) {
@@ -290,8 +291,19 @@ class SingleListings extends Controller
                                     font-family: Helvetica;
                                     color: #232f40;
                                 }
+                                h1,
+                                h6 {
+                                    margin-bottom: 10px;
+                                    text-transform: uppercase;
+                                }
+                                h1 {
+                                    font-size: 45px;
+                                }
+                                h6 {
+                                    font-size: 21px;
+                                }
                                 ul {
-                                    margin-top: 0;
+                                    margin-top: 30px;
                                     margin-bottom: 0;
                                     padding-left: 0;
                                     list-style-type: none;
@@ -338,6 +350,7 @@ class SingleListings extends Controller
                                     Square Feet
                                 </li>
                             </ul>
+                            '.apply_filters('the_content', $listing->post_content).'
                         </body>
                     </html>';
 

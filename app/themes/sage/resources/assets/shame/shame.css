@@ -8,6 +8,10 @@
  * Remember to enque the file in the assets function in app/setup.php
  */
 
+.row {
+  margin-bottom: 30px;
+}
+
 .widget {
   padding: 30px;
   color: white;

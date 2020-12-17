@@ -42,7 +42,7 @@
       <li class="menu-item menu-item-specials">
         <a href="{{ get_permalink(203) }}">Specials</a>
       </li>
-      <li class="menu-item menu-item-book-now menu-item-has-children px-6 text-white bg-primary-2" data-state="closed">
+      <li class="hidden md:grid-center menu-item menu-item-book-now menu-item-has-children px-6 text-white bg-primary-2" data-state="closed">
         @if( !is_singular('listings') )
           <a class="md:grid-center md:h-full" href="javascript:void(0)">Book Now</a>
           <div class="sub-menu sub-menu--form bg-primary-8">

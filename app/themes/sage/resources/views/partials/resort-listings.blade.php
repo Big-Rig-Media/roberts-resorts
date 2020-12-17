@@ -1,24 +1,22 @@
 @if( SingleListings::listings($post->ID) )
   <section class="pb-16">
     <div class="container">
-      <!--
       @if( $statuses )
         <div class="md:flex md:flex-row md:flex-no-wrap md:justify-end mb-10">
-          <form class="js-filter-homes" method="post" action="{{ get_permalink($post->ID) }}">
+          <form class="js-filter-listings" method="post">
             <div class="flex flex-column flex-wrap">
               <label class="block w-full mb-2 font-semibold uppercase" for="status">Filter by Type</label>
-              <select class="w-full h-10 max-h-input px-6" name="status">
+              <select class="w-full h-10 max-h-input px-6 border border-primary-7" name="status">
                 <option selected>Please Select</option>
                 @foreach( $statuses as $status )
-                  <option value="{{ $status->term_id }}">{{ $status->name }}</option>
+                  <option value=".{{ strtolower($status->name) }}">{{ $status->name }}</option>
                 @endforeach
               </select>
             </div>
           </form>
         </div>
       @endif
-      -->
-      <div class="md:grid md:grid-cols-3 md:gap-15">
+      <div class="md:flex md:flex-row md:flex-wrap -mx-2 js-listings">
         @foreach( SingleListings::listings($post->ID) as $listing )
           @php
             switch ( SingleListings::status($listing) ) {
@@ -36,7 +34,7 @@
               break;
             }
           @endphp
-          <div class="relative">
+          <div class="relative w-full md:w-1/3 px-2 mb-4 {{ strtolower(SingleListings::status($listing)) }}">
             <div class="shadow-md">
               @if( App::featuredImage($listing, 'w732x400') )
                 <div class="relative overflow-hidden">
@@ -52,18 +50,21 @@
                 <h4 class="mb-1">{{ $listing->post_title }}</h4>
                 @if( SingleListings::price($listing) || SingleListings::bedrooms($listing) || SingleListings::bathrooms($listing) )
                   <div class="flex flex-row flex-no-wrap text-sm uppercase">
-                    @if( SingleListings::price($listing) )
+                    @if( SingleListings::price($listing) && (SingleListings::bedrooms($listing) && SingleListings::bathrooms($listing)) && SingleListings::lotNumber($listing) )
                       <span>${{ SingleListings::price($listing) }}</span>
-                    @endif
-                    @if( SingleListings::bedrooms($listing) && SingleListings::bathrooms($listing) )
                       <span class="mx-2">
                         <span class="pr-2">&#124;</span>
                         {{ SingleListings::bedrooms($listing) }} BR / {{ SingleListings::bathrooms($listing) }} BA
                         <span class="pl-2">&#124;</span>
                       </span>
-                    @endif
-                    @if( SingleListings::lotNumber($listing) )
                       <span>Lot {{ SingleListings::lotNumber($listing) }}</span>
+                    @endif
+                    @if( SingleListings::price($listing) && SingleListings::lotNumber($listing) && !SingleListings::bedrooms($listing) && !SingleListings::bathrooms($listing) )
+                      <span>${{ SingleListings::price($listing) }}</span>
+                      <span class="ml-2">
+                        <span class="pr-2">&#124;</span>
+                        Lot {{ SingleListings::lotNumber($listing) }}
+                      </span>
                     @endif
                   </div>
                 @endif

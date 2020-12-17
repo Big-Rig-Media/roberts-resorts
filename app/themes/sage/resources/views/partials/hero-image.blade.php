@@ -11,8 +11,10 @@
     if ( is_singular('listings') ) {
       switch ( count($ancestors) ) {
         case 0:
-        case 1:
           $padding = 'pt-16 pb-74 md:py-0';
+        break;
+        case 1:
+          $padding = 'py-16 md:py-0';
         break;
       }
     } else {

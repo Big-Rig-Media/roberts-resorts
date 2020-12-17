@@ -1,7 +1,7 @@
 // Custom Gravity Forms styling
 // Use at your own risk
 .gform_fields {
-  @apply pl-0;
+  @apply pl-0 list-reset;
 }
 
 .gfield {
@@ -22,7 +22,11 @@
 }
 
 .gfield_label {
-  @apply inline-block mb-1 text-xs font-medium text-white uppercase;
+  @apply inline-block mb-1 text-xs font-medium text-primary-1 uppercase;
+
+  aside & {
+    @apply text-white;
+  }
 }
 
 .gform_validation_container {

@@ -1,5 +1,5 @@
 <form class="w-full max-w-xl mx-auto js-book-resorts" method="post">
-  <div class="md:flex md:flex-row md:flex-no-wrap md:items-end md:justify-between">
+  <div class="md:flex md:flex-row md:flex-no-wrap md:items-end md:justify-between text-left">
     @if( App::resorts() )
       <div class="flex flex-column flex-wrap w-full md:max-w-xs mb-3 md:mb-0">
         <label class="block w-full mb-2 font-semibold text-white text-shadow uppercase" for="resort">Choose Location</label>
@@ -11,13 +11,15 @@
         </select>
       </div>
     @endif
-    <div class="flex flex-column flex-wrap w-full md:max-w-xxs md:mx-3 mb-3 md:mb-0">
-      <label class="block w-full mb-2 font-semibold text-white text-shadow uppercase" for="check-in">Check-In</label>
-      <input class="w-full h-10 max-h-input px-6 bg-white" type="date" name="check-in" />
-    </div>
-    <div class="flex flex-column flex-wrap w-full md:max-w-xxs md:mr-3 mb-3 md:mb-0">
-      <label class="block w-full mb-2 font-semibold text-white text-shadow uppercase" for="check-out">Check-Out</label>
-      <input class="w-full h-10 max-h-input px-6 bg-white" type="date" name="check-out" />
+    <div class="flex flex-row flex-no-wrap -mx-2 md:-mx-0">
+      <div class="flex flex-column flex-wrap w-1/2 md:w-full md:max-w-xxs md:mx-3 mb-3 md:mb-0 px-2 md:px-0">
+        <label class="block w-full mb-2 font-semibold text-white text-shadow uppercase" for="check-in">Check-In</label>
+        <input class="w-full h-10 max-h-input px-6 bg-white" type="date" name="check-in" />
+      </div>
+      <div class="flex flex-column flex-wrap w-1/2 md:w-full md:max-w-xxs md:mr-3 mb-3 md:mb-0 px-2 md:px-0">
+        <label class="block w-full mb-2 font-semibold text-white text-shadow uppercase" for="check-out">Check-Out</label>
+        <input class="w-full h-10 max-h-input px-6 bg-white" type="date" name="check-out" />
+      </div>
     </div>
     <div class="flex flex-column flex-wrap w-full md:max-w-xs mb-5 md:mb-0">
       <label class="block w-full mb-2 font-semibold text-white text-shadow uppercase" for="adults">Adults</label>

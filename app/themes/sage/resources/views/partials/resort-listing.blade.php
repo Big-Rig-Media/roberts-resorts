@@ -3,23 +3,26 @@
   <div class="container">
     <div class="mb-10 text-center">
       <h1>{{ $post->post_title }}</h1>
-      @if( SingleListings::price($post) || SingleListings::bedrooms($post) || SingleListings::bathrooms($post) )
+      @if( SingleListings::price($listing) || SingleListings::bedrooms($listing) || SingleListings::bathrooms($listing) )
         <div class="flex flex-row flex-no-wrap justify-center text-sm uppercase">
-          @if( SingleListings::price($post) )
-            <span>${{ SingleListings::price($post) }}</span>
-          @endif
-          @if( SingleListings::bedrooms($post) && SingleListings::bathrooms($post) )
-            <span class="mx-2">
-              <span class="pr-2">&#124;</span>
-              {{ SingleListings::bedrooms($post) }} BR / {{ SingleListings::bathrooms($post) }} BA
-              <span class="pl-2">&#124;</span>
-            </span>
-          @endif
-          @if( SingleListings::lotNumber($post) )
-            <span>Lot {{ SingleListings::lotNumber($post) }}</span>
-          @endif
-        </div>
-      @endif
+          @if( SingleListings::price($listing) && (SingleListings::bedrooms($listing) && SingleListings::bathrooms($listing)) && SingleListings::lotNumber($listing) )
+            <span>${{ SingleListings::price($listing) }}</span>
+              <span class="mx-2">
+                <span class="pr-2">&#124;</span>
+                {{ SingleListings::bedrooms($listing) }} BR / {{ SingleListings::bathrooms($listing) }} BA
+                <span class="pl-2">&#124;</span>
+              </span>
+              <span>Lot {{ SingleListings::lotNumber($listing) }}</span>
+            @endif
+            @if( SingleListings::price($listing) && SingleListings::lotNumber($listing) && !SingleListings::bedrooms($listing) && !SingleListings::bathrooms($listing) )
+              <span>${{ SingleListings::price($listing) }}</span>
+              <span class="ml-2">
+                <span class="pr-2">&#124;</span>
+                Lot {{ SingleListings::lotNumber($listing) }}
+              </span>
+            @endif
+          </div>
+        @endif
     </div>
     <div class="md:flex md:flex-row md:flex-no-wrap md:items-start md:justify-between">
       <div class="md:w-2/3">

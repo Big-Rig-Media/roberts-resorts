@@ -3,6 +3,7 @@
     <div class="container">
       <div>
         @foreach( SingleListings::specials(get_post($post->post_parent)->post_name) as $special )
+          <a id="{{ $special->post_name }}" style="display:block;position:relative;top:-70px;visibility:hidden"></a>
           <div class="md:flex md:flex-row md:flex-no-wrap md:items-stretch md:justify-between mb-10 shadow-md">
             @if( App::featuredImage($special, 'w636x636') )
               <div class="md:w-1/3">

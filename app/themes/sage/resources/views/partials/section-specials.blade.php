@@ -17,7 +17,7 @@
         <div class="mx-1 py-32 px-6 md:px-0 md:py-40 bg-center bg-no-repeat bg-cover js-background" data-mobile="{{ App::featuredImage($special, 'w636x636') }}" data-desktop="{{ App::featuredImage($special, 'w636x636') }}">
           <div class="grid-center text-center">
             <h4 class="mb-2 text-white text-shadow uppercase">{{ $special->post_title }}</h4>
-            <a class="inline-block w-auto mb-3 md:mb-0 py-3 px-4 text-sm font-semibold text-white text-shadow uppercase no-underline bg-primary-2" href="/resorts/{{ $post->post_name }}/specials">View Special</a>
+            <a class="inline-block w-auto mb-3 md:mb-0 py-3 px-4 text-sm font-semibold text-white text-shadow uppercase no-underline bg-primary-2" href="/resorts/{{ $post->post_name }}/specials#{{ $special->post_name }}">View Special</a>
           </div>
         </div>
       @endforeach

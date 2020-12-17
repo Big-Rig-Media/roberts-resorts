@@ -29,8 +29,10 @@ add_action('wp_enqueue_scripts', function () {
         wp_enqueue_script('comment-reply');
     }
 
+    wp_enqueue_script('isotope.js', 'https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js', ['jquery'], null, true);
+
     wp_enqueue_style('sage/shame.css', get_stylesheet_directory_uri() . '/assets/shame/shame.css', false, null);
-    //wp_enqueue_script('sage/shame.js', get_stylesheet_directory_uri() . '/assets/shame/shame.js', ['jquery'], null, true);
+    wp_enqueue_script('sage/shame.js', get_stylesheet_directory_uri() . '/assets/shame/shame.js', ['jquery'], null, true);
 }, 100);
 
 /**
