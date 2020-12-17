@@ -18,7 +18,22 @@
   @if( TemplateTaxonomyType::getListings($object->post_name) )
     <section class="pb-16">
       <div class="container">
-        <div class="md:grid md:grid-cols-3 md:gap-15">
+        @if( $statuses )
+          <div class="md:flex md:flex-row md:flex-no-wrap md:justify-end mb-10">
+            <form class="js-filter-listings" method="post">
+              <div class="flex flex-column flex-wrap">
+                <label class="block w-full mb-2 font-semibold uppercase" for="status">Filter by Type</label>
+                <select class="w-full h-10 max-h-input px-6 border border-primary-7" name="status">
+                  <option selected>Please Select</option>
+                  @foreach( $statuses as $status )
+                    <option value=".{{ strtolower($status->name) }}">{{ $status->name }}</option>
+                  @endforeach
+                </select>
+              </div>
+            </form>
+          </div>
+        @endif
+        <div class="md:flex md:flex-row md:flex-wrap -mx-2 js-listings">
           @foreach( TemplateTaxonomyType::getListings($object->post_name) as $listing )
             @php
               switch ( TemplateTaxonomyType::status($listing) ) {
@@ -36,7 +51,7 @@
                 break;
               }
             @endphp
-            <div class="relative">
+            <div class="relative w-full md:w-1/3 px-2 mb-4 {{ strtolower(TemplateTaxonomyType::status($listing)) }}">
               <div class="shadow-md">
                 @if( App::featuredImage($listing, 'w732x400') )
                   <div class="relative overflow-hidden">
@@ -52,18 +67,21 @@
                   <h4 class="mb-1">{{ $listing->post_title }}</h4>
                   @if( TemplateTaxonomyType::price($listing) || TemplateTaxonomyType::bedrooms($listing) || TemplateTaxonomyType::bathrooms($listing) )
                     <div class="flex flex-row flex-no-wrap text-sm uppercase">
-                      @if( TemplateTaxonomyType::price($listing) )
+                      @if( TemplateTaxonomyType::price($listing) && (TemplateTaxonomyType::bedrooms($listing) && TemplateTaxonomyType::bathrooms($listing)) && TemplateTaxonomyType::lotNumber($listing) )
                         <span>${{ TemplateTaxonomyType::price($listing) }}</span>
-                      @endif
-                      @if( TemplateTaxonomyType::bedrooms($listing) && TemplateTaxonomyType::bathrooms($listing) )
                         <span class="mx-2">
                           <span class="pr-2">&#124;</span>
                           {{ TemplateTaxonomyType::bedrooms($listing) }} BR / {{ TemplateTaxonomyType::bathrooms($listing) }} BA
                           <span class="pl-2">&#124;</span>
                         </span>
-                      @endif
-                      @if( TemplateTaxonomyType::lotNumber($listing) )
                         <span>Lot {{ TemplateTaxonomyType::lotNumber($listing) }}</span>
+                      @endif
+                      @if( TemplateTaxonomyType::price($listing) && TemplateTaxonomyType::lotNumber($listing) && !TemplateTaxonomyType::bedrooms($listing) && !TemplateTaxonomyType::bathrooms($listing) )
+                        <span>${{ TemplateTaxonomyType::price($listing) }}</span>
+                        <span class="ml-2">
+                          <span class="pr-2">&#124;</span>
+                          Lot {{ TemplateTaxonomyType::lotNumber($listing) }}
+                        </span>
                       @endif
                     </div>
                   @endif

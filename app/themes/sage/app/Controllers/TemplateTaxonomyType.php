@@ -97,4 +97,21 @@ class TemplateTaxonomyType extends Controller
 
         return;
     }
+
+    /**
+     * Get statuses
+     */
+    public function statuses()
+    {
+        $terms = get_terms([
+            'taxonomy'      => 'status',
+            'hide_empty'    => false
+        ]);
+
+        if ( $terms ) {
+            return $terms;
+        }
+
+        return;
+    }
 }
