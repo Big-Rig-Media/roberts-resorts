@@ -41,7 +41,15 @@ class TemplateTaxonomyType extends Controller
             $terms = get_the_terms($listing, 'status');
 
             if ( $terms ) {
-                return $terms[0]->name;
+                $slugs = [];
+
+                foreach ( $terms as $term ) {
+                    $slugs[] = $term->name;
+                }
+
+                return $slugs;
+
+                //return $terms[0]->name;
             }
 
             return;

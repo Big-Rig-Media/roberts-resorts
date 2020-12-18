@@ -19,7 +19,7 @@
       <div class="md:flex md:flex-row md:flex-wrap -mx-2 js-listings">
         @foreach( SingleListings::listings($post->ID) as $listing )
           @php
-            switch ( SingleListings::status($listing) ) {
+            switch ( SingleListings::status($listing)[0] ) {
               case 'Available':
                 $bg = 'bg-available';
               break;
@@ -34,12 +34,12 @@
               break;
             }
           @endphp
-          <div class="relative w-full md:w-1/3 px-2 mb-4 {{ strtolower(SingleListings::status($listing)) }}">
+          <div class="relative w-full md:w-1/3 px-2 mb-4 {{ strtolower(implode(' ', SingleListings::status($listing))) }}">
             <div class="shadow-md">
               @if( App::featuredImage($listing, 'w732x400') )
                 <div class="relative overflow-hidden">
                   @if( SingleListings::status($listing) )
-                    <span class="absolute z-50 py-3 font-semibold text-white text-center uppercase text-shadow {{ $bg }}" style="top:20px;left:-80px;width:300px;transform:rotate(-30deg);">{{ SingleListings::status($listing) }}</span>
+                    <span class="absolute z-50 py-3 font-semibold text-white text-center uppercase text-shadow {{ $bg }}" style="top:20px;left:-80px;width:300px;transform:rotate(-30deg);">{{ SingleListings::status($listing)[0] }}</span>
                   @endif
                   <a href="{{ get_permalink($listing->ID) }}">
                     <img src="{{ App::featuredImage($listing, 'w732x400') }}" />

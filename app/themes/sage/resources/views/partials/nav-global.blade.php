@@ -32,10 +32,10 @@
         <a href="javascript:void(0)">Homes & Lots for Sale</a>
         <ul class="sub-menu">
           <li class="menu-item">
-            <a href="{{ get_permalink(142) }}">Home Listings</a>
+            <a href="{{ get_permalink(60) }}">Home Listings</a>
           </li>
           <li class="menu-item">
-            <a href="{{ get_permalink(144) }}">Lot Listings</a>
+            <a href="{{ get_permalink(1843) }}">Lot Listings</a>
           </li>
         </ul>
       </li>

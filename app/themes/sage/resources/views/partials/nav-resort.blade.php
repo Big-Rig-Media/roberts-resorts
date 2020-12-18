@@ -90,7 +90,7 @@
       @break
     @endswitch
   </nav>
-  <nav class="nav nav--header mb-4 md:mb-0">
+  <nav class="nav nav--header mt-8 md:mt-0 mb-4 md:mb-0">
     <ul class="nav__list">
       <li class="menu-item menu-item-book-now px-6 text-white bg-primary-2" data-state="closed">
         @switch( count($ancestors) )

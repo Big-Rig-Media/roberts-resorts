@@ -51,13 +51,21 @@ class SingleListings extends Controller
     /**
      * Get status
      */
-    public static function status($home)
+    public static function status($listing)
     {
-        if ( $home ) {
-            $terms = get_the_terms($home, 'status');
+        if ( $listing ) {
+            $terms = get_the_terms($listing, 'status');
 
             if ( $terms ) {
-                return $terms[0]->name;
+                $slugs = [];
+
+                foreach ( $terms as $term ) {
+                    $slugs[] = $term->name;
+                }
+
+                return $slugs;
+
+                //return $terms[0]->name;
             }
 
             return;

@@ -35,3 +35,25 @@
   color: currentColor;
   text-decoration: none;
 }
+
+.page-template-template-home .section--5 {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+@media (min-width: 1024px) {
+  .page-template-template-home .section--5 {
+    padding-top: 180px;
+    padding-bottom: 180px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1335px) {
+  .nav--header .nav__list > .menu-item > a {
+    font-size: 0.875rem;
+  }
+
+  .sub-menu--mega {
+    right: -508px;
+  }
+}
