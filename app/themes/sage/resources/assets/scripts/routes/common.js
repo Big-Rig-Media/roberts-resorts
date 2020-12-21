@@ -14,6 +14,7 @@ export default {
     const jsPopup = document.querySelector('.js-popup')
     const galleryThumbs = document.querySelectorAll('.gallery-icon')
     const forms = document.querySelectorAll('.js-book-resorts')
+    const jsSticky = document.querySelector('.js-sticky')
 
     // Handle external urls
     anchors.forEach(anchor => {
@@ -162,6 +163,23 @@ export default {
           }
         })
       })
+    }
+
+    // Handle sticky menu
+    if (jsSticky) {
+      if (window.matchMedia('(min-width:1024px)').matches) {
+        const stickyTop = jsSticky.getBoundingClientRect().top
+
+        window.addEventListener('scroll', () => {
+          let currentY = window.scrollY
+
+          if (currentY >= stickyTop) {
+            jsSticky.classList.add('is-sticky')
+          } else {
+            jsSticky.classList.remove('is-sticky')
+          }
+        })
+      }
     }
 
     // Find all YouTube videos

@@ -1,0 +1,15 @@
+.js-sticky {
+  @media (min-width: 1024px) {
+    &.is-sticky {
+      @apply fixed pin-t pin-l pin-r z-60 bg-white shadow-lg;
+
+      .brand {
+        max-width: 121px;
+      }
+    }
+  }
+}
+
+.brand {
+  transition: all 0.35s ease-in-out;
+}

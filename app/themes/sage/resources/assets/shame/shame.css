@@ -8,6 +8,10 @@
  * Remember to enque the file in the assets function in app/setup.php
  */
 
+footer hr {
+  border-top: 0;
+}
+
 .row {
   margin-bottom: 30px;
 }
@@ -47,6 +51,27 @@
     padding-top: 180px;
     padding-bottom: 180px;
   }
+
+  #gform_wrapper_13 .gform_body {
+    width: calc(100% - 137px);
+  }
+
+  #gform_wrapper_13 .gfield {
+    margin-bottom: 0;
+  }
+
+  #gform_13 {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1336px) {
+  #gform_wrapper_13 .gform_footer {
+    width: calc(100% - 484px);
+  }
 }
 
 @media (min-width: 1024px) and (max-width: 1335px) {
@@ -57,4 +82,8 @@
   .sub-menu--mega {
     right: -508px;
   }
+}
+
+#gform_wrapper_13 .gfield_label {
+  color: white;
 }

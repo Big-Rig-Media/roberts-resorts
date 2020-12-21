@@ -24,4 +24,10 @@
       </div>
     </div>
   </section>
+@else
+  <section class="pb-8 md:pb-16">
+    <div class="container">
+      <p class="text-center"><strong>No specials at this time. Please check back soon.</strong></p>
+    </div>
+  </section>
 @endif

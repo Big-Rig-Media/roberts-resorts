@@ -10,6 +10,9 @@
     @if( $content )
       {!! $content !!}
     @endif
+    @if( !SingleListings::specials($post->post_name) )
+      <p class="text-center"><strong>No specials at this time. Please check back soon.</strong></p>
+    @endif
   </div>
   @if( SingleListings::specials($post->post_name) )
     <div class="-mx-1 js-carousel-specials">

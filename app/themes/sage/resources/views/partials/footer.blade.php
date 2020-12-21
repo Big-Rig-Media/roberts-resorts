@@ -5,7 +5,7 @@
         <img src="/app/uploads/2020/12/roberts-resorts-logo-white.svg" alt="{{ get_bloginfo('name', 'display') }}">
       </a>
       <div class="mt-8 md:mt-0">
-        <span class="block mb-4 font-bold uppercase">Quick Links</span>
+        <span class="block mb-4 text-2sm font-bold uppercase">Quick Links</span>
         <nav class="nav nav--footer">
           @if (has_nav_menu('footer_navigation'))
             {!! wp_nav_menu(['menu_class' => 'nav__list', 'container' => '', 'theme_location' => 'footer_navigation', ]) !!}
@@ -13,7 +13,8 @@
         </nav>
       </div>
       <div class="hidden md:block">
-        Form
+        <span class="block mb-4 text-2sm font-bold uppercase">Sign Up for Special Offers, Discounts and More</span>
+        {!! do_shortcode('[gravityform id="13" title="false" description="false"]') !!}
       </div>
     </div>
     <hr>

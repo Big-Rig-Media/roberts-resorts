@@ -14,7 +14,7 @@
       </div>
     </div>
   </div>
-  <div class="bg-white">
+  <div class="bg-white js-sticky">
     <div class="flex flex-row flex-wrap md:flex-no-wrap md:items-stretch justify-center md:justify-between relative w-full max-w-custom mx-auto px-base">
       <a class="inline-block w-full max-w-brand-mobile lg:max-w-brand py-6 brand" href="{{ App::brandURL() }}" title="Go Home">
         @if(get_option('branding'))
