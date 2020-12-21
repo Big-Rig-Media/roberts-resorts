@@ -9,36 +9,55 @@
 <section class="bg-white">
   <div class="relative md:grid md:grid-find-resort md:min-h-screen">
     <div class="px-base md:px-0">
-      @foreach( App::resorts() as $resort )
-        <div class="mb-4 md:mb-0 md:px-10 md:py-12 shadow-md md:shadow-none">
-          <div class="md:flex md:flex-row md:flex-no-wrap md:justify-between">
-            @if( App::featuredImage($resort, 'w732x400') )
-              <div class="md:w-2/5">
-                <a href="{{ get_permalink($resort->ID) }}">
-                  <img src="{{ App::featuredImage($resort, 'w732x400') }}" />
-                </a>
-              </div>
-            @endif
-            <div class="md:w-3/5 p-8 md:p-0">
-              <div class="md:ml-5">
-                @if( App::resortAge($resort) )
-                  <span class="inline-block font-semibold uppercase">{{ App::resortAge($resort) }}</span>
-                @endif
-                <h4 class="mb-1">{{ $resort->post_title }}</h4>
-                @if( App::resortCity($resort) && App::resortState($resort) && App::resortZipcode($resort) )
-                  <span class="text-sm uppercase">{{ App::resortCity($resort) }}, {{ App::resortState($resort) }} {{ App::resortZipcode($resort) }}</span>
-                @endif
-                <div class="mt-4">
-                  <a class="inline-block py-3 px-4 text-sm font-semibold text-white text-shadow uppercase no-underline bg-primary-1" href="{{ get_permalink($resort->ID) }}">View Resort</a>
-                  @if( App::resortCampspotSlug($resort) )
-                    <a class="inline-block md:ml-2 py-3 px-4 text-sm font-semibold text-white text-shadow uppercase no-underline bg-primary-2" href="https://www.campspot.com/book/{{ App::resortCampspotSlug($resort) }}">Book Now</a>
+      <div class="md:hidden py-8">
+        <h1 class="text-center">Explore Our Resorts</h1>
+        @if( $post->post_content )
+          {!! apply_filters('the_content', $post->post_content) !!}
+        @endif
+        @if( App::resortStates() )
+          <form class="js-filter-listings" method="post">
+            <label class="block w-full mb-2 font-semibold uppercase" for="state">Filter by State</label>
+            <select class="w-full h-10 max-h-input px-6 border border-primary-7" name="state">
+              <option selected>Please Select</option>
+              @foreach( App::resortStates() as $state )
+                <option value=".{{ $state->name }}">{{ $state->name }}</option>
+              @endforeach
+            </select>
+          </form>
+        @endif
+      </div>
+      <div class="js-listings">
+        @foreach( App::resorts() as $resort )
+          <div class="mb-4 md:mb-0 md:px-10 md:py-12 shadow-md md:shadow-none md:border-b md:border-primary-6 {{ App::resortState($resort) }}">
+            <div class="md:flex md:flex-row md:flex-no-wrap md:justify-between">
+              @if( App::featuredImage($resort, 'w732x400') )
+                <div class="md:w-2/5">
+                  <a href="{{ get_permalink($resort->ID) }}">
+                    <img src="{{ App::featuredImage($resort, 'w732x400') }}" />
+                  </a>
+                </div>
+              @endif
+              <div class="md:w-3/5 p-8 md:p-0">
+                <div class="md:ml-5">
+                  @if( App::resortAge($resort) )
+                    <span class="inline-block font-semibold uppercase">{{ App::resortAge($resort) }}</span>
                   @endif
+                  <h4 class="mb-1">{{ $resort->post_title }}</h4>
+                  @if( App::resortCity($resort) && App::resortState($resort) && App::resortZipcode($resort) )
+                    <span class="text-sm uppercase">{{ App::resortCity($resort) }}, {{ App::resortState($resort) }} {{ App::resortZipcode($resort) }}</span>
+                  @endif
+                  <div class="mt-4">
+                    <a class="inline-block py-3 px-4 text-sm font-semibold text-white text-shadow uppercase no-underline bg-primary-1" href="{{ get_permalink($resort->ID) }}">View Resort</a>
+                    @if( App::resortCampspotSlug($resort) )
+                      <a class="inline-block md:ml-2 py-3 px-4 text-sm font-semibold text-white text-shadow uppercase no-underline bg-primary-2" href="https://www.campspot.com/book/{{ App::resortCampspotSlug($resort) }}">Book Now</a>
+                    @endif
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      @endforeach
+        @endforeach
+      </div>
     </div>
     <div class="md:sticky md:pin-t md:h-screen">
       <div class="md:absolute md:pin-t md:pin-r md:w-full md:h-full">

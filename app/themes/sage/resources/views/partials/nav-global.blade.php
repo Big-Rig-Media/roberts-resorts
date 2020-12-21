@@ -15,10 +15,10 @@
                       </a>
                     </div>
                   @endif
-                  @if( App::resortCity($resort) && App::resortState($resort) && App::resortZipcode($resort) )
-                    <span class="block mb-1 text-sm uppercase">{{ App::resortCity($resort) }}, {{ App::resortState($resort) }} {{ App::resortZipcode($resort) }}</span>
+                  <a class="mb-1 text-sm font-semibold text-primary-3" href="{{ get_permalink($resort->ID) }}">{{ $resort->post_title }}</a>
+                  @if( App::resortCity($resort) && App::resortState($resort) )
+                    <span class="block mt-1 text-sm uppercase">{{ App::resortCity($resort) }}, {{ App::resortState($resort) }}</span>
                   @endif
-                  <a class="mt-1 text-sm font-semibold text-primary-3" href="{{ get_permalink($resort->ID) }}">{{ $resort->post_title }}</a>
                 </div>
               @endforeach
             </div>

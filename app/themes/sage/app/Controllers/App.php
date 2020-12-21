@@ -399,4 +399,18 @@ class App extends Controller
             return home_url('/');
         }
     }
+
+    public static function resortStates()
+    {
+        $terms = get_terms([
+            'taxonomy'      => 'state',
+            'hide_empty'    => false
+        ]);
+
+        if ( $terms ) {
+            return $terms;
+        }
+
+        return;
+    }
 }

@@ -13,7 +13,11 @@ export default {
         const checkOut = e.target['check-out'].value
         const adults = e.target['adults'].value
 
-        window.open(`https://www.campspot.com/book/${resort}/search/${checkIn}/${checkOut}/guests${adults},0,0`)
+        if (checkIn === '' && checkOut === '' && adults === 'Please Select') {
+          window.open(`https://www.campspot.com/book/${resort}`)
+        } else {
+          window.open(`https://www.campspot.com/book/${resort}/search/${checkIn}/${checkOut}/guests${adults},0,0`)
+        }
       })
     }
 

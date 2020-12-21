@@ -1,6 +1,5 @@
 import { isExternal, isEmpty, observeBackgrounds, dropdownState } from '../util/helpers'
 import * as Cookies from 'js-cookie'
-import axios from 'axios'
 
 export default {
   init() {
@@ -14,7 +13,7 @@ export default {
     const jsBackgrounds = document.querySelectorAll('.js-background')
     const jsPopup = document.querySelector('.js-popup')
     const galleryThumbs = document.querySelectorAll('.gallery-icon')
-    const jsFilterSpecials = document.querySelector('.js-filter-specials')
+    const forms = document.querySelectorAll('.js-book-resorts')
 
     // Handle external urls
     anchors.forEach(anchor => {
@@ -139,6 +138,32 @@ export default {
       }
     }
 
+    // Handle form submission
+    if (forms) {
+      forms.forEach(form => {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault()
+
+          if ( e.submitter.name !== 'explore' ) {
+            const resort = e.target['resort'].value
+            const checkIn = e.target['check-in'].value
+            const checkOut = e.target['check-out'].value
+            const adults = e.target['adults'].value
+
+            if (checkIn === '' && checkOut === '' && adults === 'Please Select') {
+              window.open(`https://www.campspot.com/book/${resort}`)
+            } else {
+              window.open(`https://www.campspot.com/book/${resort}/search/${checkIn}/${checkOut}/guests${adults},0,0`)
+            }
+          } else {
+            const resort = e.target['resort'].options[e.target['resort'].selectedIndex].dataset.slug
+
+            window.location.replace(`/resorts/${resort}`)
+          }
+        })
+      })
+    }
+
     // Find all YouTube videos
     // Expand that selector for Vimeo and whatever else
     var $allVideos = $('iframe[src^="https://www.youtube.com"]'),
@@ -175,20 +200,6 @@ export default {
 
     // Kick off one resize to fix all videos on page load
     }).resize();
-
-    if (jsFilterSpecials) {
-      const fetchSpecials = (id) => {
-        return axios.get(`/wp-json/wp/v2/specials?resort=${id}`).then(res => res.data).catch(err => console.error(err))
-      }
-
-      jsFilterSpecials.addEventListener('change', (e) => {
-        e.preventDefault()
-
-        const data = fetchSpecials(e.target.value)
-
-        console.log(data.then(data => console.log(data)))
-      })
-    }
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired

@@ -3,6 +3,12 @@
   @apply inline-block py-3 px-4 text-sm font-semibold text-white text-shadow uppercase no-underline;
 }
 
+.btn + .btn {
+  @media (max-width: 1023px) {
+    @apply mt-5;
+  }
+}
+
 // Primary
 .btn--primary {
   @apply bg-primary-1;

@@ -103,7 +103,7 @@
   }
 
   a {
-    @apply no-underline;
+    @apply text-2sm no-underline;
   }
 }
 
@@ -153,11 +153,11 @@
 
   // Dropdown Specific
   .sub-menu & {
-    @apply mt-4 ml-0;
+    @apply mt-4 pt-4 ml-0 border-t border-primary-6;
   }
 
   .sub-menu--mega & {
-    @apply mt-0;
+    @apply mt-0 pt-0 border-none;
   }
 }
 
@@ -172,7 +172,7 @@
 
   // 1024
   @media (min-width: 1024px) {
-    @apply absolute z-50 p-base w-64 bg-white;
+    @apply absolute z-50 p-base w-64 bg-white border-t border-primary-6;
 
     top: 100%;
     left: -15px;

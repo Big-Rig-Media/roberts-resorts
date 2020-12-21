@@ -176,6 +176,8 @@ function display_hero_meta($slug)
             'specials',
             'lots-for-sale',
             'attractions',
+            'rental-cabins',
+            'golf',
         ];
 
         return in_array($slug, $slugs);

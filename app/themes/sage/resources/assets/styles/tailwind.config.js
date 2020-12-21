@@ -935,7 +935,7 @@ module.exports = {
           gridTemplateColumns: 'repeat(6,1fr)',
         },
         '.grid-find-resort': {
-          gridTemplateColumns: '3fr 2fr',
+          gridTemplateColumns: '2fr 2fr',
         },
         '.grid-footer': {
           gridTemplateColumns: '2fr 2fr 3fr',

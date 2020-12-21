@@ -1,29 +1,6 @@
 export default {
   init() {
     // JavaScript to be fired on the home page
-    const forms = document.querySelectorAll('.js-book-resorts')
-
-    // Handle form submission
-    if (forms) {
-      forms.forEach(form => {
-        form.addEventListener('submit', (e) => {
-          e.preventDefault()
-
-          if ( e.submitter.name !== 'explore' ) {
-            const resort = e.target['resort'].value
-            const checkIn = e.target['check-in'].value
-            const checkOut = e.target['check-out'].value
-            const adults = e.target['adults'].value
-
-            window.open(`https://www.campspot.com/book/${resort}/search/${checkIn}/${checkOut}/guests${adults},0,0`)
-          } else {
-            const resort = e.target['resort'].options[e.target['resort'].selectedIndex].dataset.slug
-
-            window.location.replace(`/resorts/${resort}`)
-          }
-        })
-      })
-    }
 
     // Handle carousel
     if ($('.js-videos-carousel').length && $('.js-videos-carousel-nav').length) {

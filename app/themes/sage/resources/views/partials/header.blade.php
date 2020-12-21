@@ -4,11 +4,13 @@
     <div class="w-full max-w-custom mx-auto px-base">
       <div class="flex flex-row flex-no-wrap justify-center md:justify-end text-white">
         <a class="py-3 px-4 md:py-0 md:px-0 font-semibold md:font-normal text-current text-shadow uppercase no-underline bg-primary-2 md:bg-transparent" href="{{ get_permalink(109) }}">Find a Resort</a>
+        <a class="md:hidden ml-5 py-3 px-4 md:py-0 md:px-0 font-semibold md:font-normal text-current text-shadow uppercase no-underline bg-primary-2 md:bg-transparent" href="{{ get_permalink(109) }}">Homepage</a>
         <a class="hidden md:inline-block md:ml-10 text-current text-shadow uppercase no-underline" href="{{ get_permalink(107) }}">The Roberts Difference</a>
-        @if( is_singular('listings') )
-          <span class="hidden md:inline-block ml-5 pr-5">&#124;</span>
-          <a class="hidden md:inline-block font-bold text-white uppercase no-underline" href="/">Homepage</a>
+        @if( get_field('covid_information', 'option') )
+        <a class="hidden md:inline-block md:ml-10 text-current text-shadow uppercase no-underline" href="{{ get_field('covid_information', 'option') }}">COVID-19 Information</a>
         @endif
+        <span class="hidden md:inline-block ml-5 pr-5">&#124;</span>
+        <a class="hidden md:inline-block font-bold text-white uppercase no-underline" href="/">Homepage</a>
       </div>
     </div>
   </div>

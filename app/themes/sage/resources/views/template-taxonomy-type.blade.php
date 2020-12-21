@@ -18,6 +18,7 @@
   @if( TemplateTaxonomyType::getListings($object->post_name) )
     <section class="pb-16">
       <div class="container">
+        <!--
         @if( $statuses )
           <div class="md:flex md:flex-row md:flex-no-wrap md:justify-end mb-10">
             <form class="js-filter-listings" method="post">
@@ -33,6 +34,7 @@
             </form>
           </div>
         @endif
+        -->
         <div class="md:flex md:flex-row md:flex-wrap -mx-2 js-listings">
           @foreach( TemplateTaxonomyType::getListings($object->post_name) as $listing )
             @php
@@ -64,7 +66,10 @@
                   </div>
                 @endif
                 <div class="p-8">
-                  <h4 class="mb-1">{{ $listing->post_title }}</h4>
+                  <h4 class="mb-0">{{ $listing->post_title }}</h4>
+                  @if( TemplateTaxonomyType::resort($listing) )
+                    <span class="block mb-4 text-base">{{ TemplateTaxonomyType::resort($listing) }}</span>
+                  @endif
                   @if( TemplateTaxonomyType::price($listing) || TemplateTaxonomyType::bedrooms($listing) || TemplateTaxonomyType::bathrooms($listing) )
                     <div class="flex flex-row flex-no-wrap text-sm uppercase">
                       @if( TemplateTaxonomyType::price($listing) && (TemplateTaxonomyType::bedrooms($listing) && TemplateTaxonomyType::bathrooms($listing)) && TemplateTaxonomyType::lotNumber($listing) )

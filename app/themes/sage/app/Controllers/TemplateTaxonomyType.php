@@ -122,4 +122,17 @@ class TemplateTaxonomyType extends Controller
 
         return;
     }
+
+    public static function resort($listing)
+    {
+        if ( $listing ) {
+            $ancestors = get_ancestors($listing->ID, 'listings');
+
+            $resort = get_post($ancestors[1]);
+
+            return $resort->post_title;
+        }
+
+        return;
+    }
 }
