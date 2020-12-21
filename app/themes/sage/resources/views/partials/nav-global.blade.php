@@ -28,17 +28,27 @@
           </div>
         </li>
       @endif
-      <li class="menu-item menu-item-homes-lots-for-sale menu-item-has-children" data-state="closed">
-        <a href="javascript:void(0)">Homes & Lots for Sale</a>
-        <ul class="sub-menu">
-          <li class="menu-item">
-            <a href="{{ get_permalink(60) }}">Home Listings</a>
-          </li>
-          <li class="menu-item">
-            <a href="{{ get_permalink(1843) }}">Lot Listings</a>
-          </li>
-        </ul>
-      </li>
+      @if( App::listings() )
+        <li class="menu-item menu-item-homes-lots-for-sale menu-item-has-children" data-state="closed">
+          <a href="javascript:void(0)">Homes & Lots for Sale</a>
+          <div class="sub-menu sub-menu--mega sub-menu--mega--2 pl-0 md:p-5 md:border-l md:border-r md:border-b md:border-primary-7">
+            <div class="md:grid md:grid-cols-2 md:gap-15 md:w-full">
+              @foreach( App::listings() as $listing )
+                <div class="menu-item menu-item-{{ $listing->post_name }} mb-3 md:mb-0">
+                  @if( App::featuredImage($listing, 'w732x400') )
+                    <div class="mb-2">
+                      <a href="{{ get_permalink($listing->ID) }}">
+                        <img src="{{ App::featuredImage($listing, 'w732x400') }}" />
+                      </a>
+                    </div>
+                  @endif
+                  <a class="mb-1 text-sm font-semibold text-primary-3" href="{{ get_permalink($listing->ID) }}">{{ $listing->post_title }}</a>
+                </div>
+              @endforeach
+            </div>
+          </div>
+        </li>
+      @endif
       <li class="menu-item menu-item-specials">
         <a href="{{ get_permalink(203) }}">Specials</a>
       </li>
@@ -68,8 +78,8 @@
                   <input class="w-full h-10 max-h-input px-6 bg-white" type="date" name="check-out" />
                 </div>
                 <input class="hidden" type="input" name="adults" value="2" />
-                <input class="inline-block w-full md:w-auto mb-3 md:mb-0 py-3 px-4 text-sm font-semibold text-white text-shadow uppercase no-underline bg-primary-3 cursor-pointer" type="submit" name="reserve" value="Check Availability" />
-                <input class="inline-block w-full md:w-auto md:ml-2 py-3 px-4 text-sm font-semibold text-white text-shadow uppercase no-underline bg-primary-3 cursor-pointer" type="submit" name="explore" value="View Resort" />
+                <input class="btn btn--tertiary w-full md:w-auto cursor-pointer" type="submit" name="reserve" value="Check Availability" />
+                <input class="btn btn--tertiary w-full md:w-auto md:ml-2 cursor-pointer" type="submit" name="explore" value="View Resort" />
               </div>
             </form>
           </div>

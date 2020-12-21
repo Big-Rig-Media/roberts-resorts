@@ -78,8 +78,8 @@
           @if( SingleListings::agent($post) )
             <li class="mb-3 pb-3 text-base border-b border-primary-6"><strong>Agent:</strong> {{ SingleListings::agent($post) }}</li>
           @endif
-          @if( SingleListings::status($post) )
-            <li class="mb-3 pb-3 text-base border-b border-primary-6"><strong>Status:</strong> {{ SingleListings::status($post) }}</li>
+          @if( SingleListings::status($post)[0] )
+            <li class="mb-3 pb-3 text-base border-b border-primary-6"><strong>Status:</strong> {{ SingleListings::status($post)[0] }}</li>
           @endif
           @if( SingleListings::bedrooms($post) && SingleListings::bathrooms($post) )
             <li class="mb-3 pb-3 text-base border-b border-primary-6"><strong>Bd/Ba:</strong> {{ SingleListings::bedrooms($post) }} / {{ SingleListings::bathrooms($post) }}</li>

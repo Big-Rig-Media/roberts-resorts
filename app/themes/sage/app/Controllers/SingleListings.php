@@ -346,7 +346,7 @@ class SingleListings extends Controller
                                 </li>
                                 <li>
                                     <strong>Status:</strong>
-                                    '.self::status($listing).'
+                                    '.self::status($listing)[0].'
                                 </li>
                                 <li>
                                     <strong>Bd/Ba:</strong>

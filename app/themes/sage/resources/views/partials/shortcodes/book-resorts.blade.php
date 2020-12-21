@@ -39,7 +39,7 @@
     </div>
   </div>
   <div class="md:flex md:flex-row md:flex-no-wrap md:items-center md:justify-center mt-10">
-    <input class="inline-block w-full md:w-auto mb-3 md:mb-0 py-3 px-4 text-sm font-semibold text-white text-shadow uppercase no-underline bg-primary-2 cursor-pointer" type="submit" name="reserve" value="Reserve Now" />
-    <input class="inline-block w-full md:w-auto md:ml-2 py-3 px-4 text-sm font-semibold text-white text-shadow uppercase no-underline bg-primary-1 cursor-pointer" type="submit" name="explore" value="Explore Destination" />
+    <input class="btn btn--secondary w-full md:w-auto md:ml-4 cursor-pointer" type="submit" name="reserve" value="Reserve Now" />
+    <input class="btn btn--primary w-full md:w-auto md:ml-4 cursor-pointer" type="submit" name="explore" value="Explore Destination" />
   </div>
 </form>

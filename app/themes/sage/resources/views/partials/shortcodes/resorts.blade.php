@@ -19,9 +19,9 @@
               <span class="text-sm uppercase">{{ App::resortCity($resort) }}, {{ App::resortState($resort) }} {{ App::resortZipcode($resort) }}</span>
             @endif
             <div class="mt-4">
-              <a class="inline-block md:w-full lg:w-auto py-3 px-4 text-sm font-semibold text-white text-center text-shadow uppercase no-underline bg-primary-1" href="{{ get_permalink($resort->ID) }}">View Resort</a>
+              <a class="btn btn--primary" href="{{ get_permalink($resort->ID) }}">View Resort</a>
               @if( App::resortCampspotSlug($resort) )
-                <a class="inline-block md:w-full lg:w-auto md:mt-2 lg:mt-0 lg:ml-2 py-3 px-4 text-sm font-semibold text-white text-center text-shadow uppercase no-underline bg-primary-2" href="https://www.campspot.com/book/{{ App::resortCampspotSlug($resort) }}">Book Now</a>
+                <a class="btn btn--secondary" href="https://www.campspot.com/book/{{ App::resortCampspotSlug($resort) }}">Book Now</a>
               @endif
             </div>
           </div>

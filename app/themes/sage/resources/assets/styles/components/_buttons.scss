@@ -32,3 +32,15 @@
     }
   }
 }
+
+// Tertiary
+.btn--tertiary {
+  @apply bg-primary-3;
+
+  // Hover State
+  @media (hover: hover) {
+    &:hover {
+      @apply bg-primary-9;
+    }
+  }
+}

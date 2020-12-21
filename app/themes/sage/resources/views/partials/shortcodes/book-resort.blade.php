@@ -30,7 +30,7 @@
           </select>
         </div>
         <input type="hidden" name="resort" value="{{ $post->post_parent === 0 ? App::resortCampspotSlug($post) : App::resortCampspotSlug($post->post_parent) }}" />
-        <input class="inline-block w-full md:w-auto md:ml-2 px-4 h-10 text-sm font-semibold text-white text-shadow uppercase no-underline bg-primary-2 cursor-pointer" type="submit" name="reserve" value="Reserve Now" />
+        <input class="btn btn--secondary w-full md:w-auto cursor-pointer" type="submit" name="reserve" value="Reserve Now" />
       </div>
     </form>
   </div>

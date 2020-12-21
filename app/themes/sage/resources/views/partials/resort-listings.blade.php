@@ -69,7 +69,7 @@
                   </div>
                 @endif
                 <div class="mt-4">
-                  <a class="inline-block py-3 px-4 text-sm font-semibold text-white text-shadow uppercase no-underline bg-primary-2" href="{{ get_permalink($listing->ID) }}">View Listing</a>
+                  <a class="btn btn--secondary" href="{{ get_permalink($listing->ID) }}">View Listing</a>
                 </div>
               </div>
             </div>

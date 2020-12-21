@@ -114,6 +114,12 @@
       @apply py-3 px-4 text-center;
     }
 
+    @media (hover: hover) {
+      &:hover {
+        @apply bg-primary-1;
+      }
+    }
+
     a {
       @apply text-white text-shadow;
 

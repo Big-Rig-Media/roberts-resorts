@@ -66,11 +66,19 @@ footer hr {
     align-items: flex-end;
     justify-content: space-between;
   }
+
+  .sub-menu--mega--2 {
+    max-width: 500px;
+  }
 }
 
 @media (min-width: 1336px) {
   #gform_wrapper_13 .gform_footer {
     width: calc(100% - 484px);
+  }
+
+  .sub-menu--mega--2 {
+    right: -100px;
   }
 }
 
@@ -82,8 +90,16 @@ footer hr {
   .sub-menu--mega {
     right: -508px;
   }
+
+  .sub-menu--mega--2 {
+    right: -100px;
+  }
 }
 
 #gform_wrapper_13 .gfield_label {
   color: white;
+}
+
+.sub-menu--mega {
+  z-index: 60;
 }

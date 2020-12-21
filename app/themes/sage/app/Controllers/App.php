@@ -226,6 +226,20 @@ class App extends Controller
         return;
     }
 
+    public static function listings()
+    {
+        $query = new \WP_Query([
+            'post_type' => 'page',
+            'post__in'  => [60,1843]
+        ]);
+
+        if ( $query->have_posts() ) {
+            return $query->posts;
+        }
+
+        return;
+    }
+
     /**
      * Get resort age group
      */
