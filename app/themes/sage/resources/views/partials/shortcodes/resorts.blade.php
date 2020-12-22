@@ -6,7 +6,7 @@
           @if( App::featuredImage($resort, 'w732x400') )
             <div>
               <a href="{{ get_permalink($resort->ID) }}">
-                <img src="{{ App::featuredImage($resort, 'w732x400') }}" alt="{{ $resort->post_title }}" />
+                <img src="{{ App::featuredImage($resort, 'w732x400') }}" alt="{{ $resort->post_title }}" loading="lazy" />
               </a>
             </div>
           @endif

@@ -11,6 +11,9 @@ use Sober\Controller\Controller;
  */
 class TemplateTaxonomyType extends Controller
 {
+    /**
+     * Get all listings based on type taxonomy
+     */
     public static function getListings($term)
     {
         $query = new \WP_Query([
@@ -123,6 +126,9 @@ class TemplateTaxonomyType extends Controller
         return;
     }
 
+    /**
+     * Get listing resort
+     */
     public static function resort($listing)
     {
         if ( $listing ) {

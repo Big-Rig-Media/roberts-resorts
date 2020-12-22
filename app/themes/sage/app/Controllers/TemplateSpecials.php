@@ -11,6 +11,9 @@ use Sober\Controller\Controller;
  */
 class TemplateSpecials extends Controller
 {
+    /**
+     * Get all specials
+     */
     public static function specials()
     {
         $query = new \WP_Query([
@@ -25,6 +28,9 @@ class TemplateSpecials extends Controller
         return;
     }
 
+    /**
+     * Create special's resort
+     */
     public static function resort($special)
     {
         if ( $special ) {
@@ -40,6 +46,9 @@ class TemplateSpecials extends Controller
         return;
     }
 
+    /**
+     * Get all resorts
+     */
     public static function resorts()
     {
         $terms = get_terms([

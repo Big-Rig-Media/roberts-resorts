@@ -223,6 +223,9 @@ class SingleListings extends Controller
         return;
     }
 
+    /**
+     * Get front desk phone
+     */
     public static function frontDeskPhone($resort)
     {
         if ( $resort ) {
@@ -232,6 +235,9 @@ class SingleListings extends Controller
         return;
     }
 
+    /**
+     * Get home sales phone
+     */
     public static function homeSalesPhone($resort)
     {
         if ( $resort ) {
@@ -241,6 +247,9 @@ class SingleListings extends Controller
         return;
     }
 
+    /**
+     * Get home rentals phone
+     */
     public static function homeRentalsPhone($resort)
     {
         if ( $resort ) {
@@ -250,6 +259,9 @@ class SingleListings extends Controller
         return;
     }
 
+    /**
+     * Get resort specials
+     */
     public static function specials($slug)
     {
         if ( $slug ) {
@@ -275,6 +287,9 @@ class SingleListings extends Controller
         return;
     }
 
+    /**
+     * Create resort listing PDF
+     */
     public static function createPDF($listing)
     {
         $ancestors = get_ancestors(get_queried_object_id(), 'listings');

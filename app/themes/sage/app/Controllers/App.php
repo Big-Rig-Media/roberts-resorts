@@ -414,6 +414,9 @@ class App extends Controller
         }
     }
 
+    /**
+     * Get brand image
+     */
     public static function brand()
     {
         global $post;
@@ -437,6 +440,9 @@ class App extends Controller
         }
     }
 
+    /**
+     * Get brand alt tag
+     */
     public static function brandAlt()
     {
         global $post;
@@ -460,6 +466,9 @@ class App extends Controller
         }
     }
 
+    /**
+     * Get resort states
+     */
     public static function resortStates()
     {
         $terms = get_terms([

@@ -44,7 +44,7 @@
                     <span class="absolute z-50 py-3 font-semibold text-white text-center uppercase text-shadow {{ $bg }}" style="top:20px;left:-80px;width:300px;transform:rotate(-30deg);">{{ SingleListings::status($listing)[0] }}</span>
                   @endif
                   <a href="{{ get_permalink($listing->ID) }}">
-                    <img src="{{ App::featuredImage($listing, 'w732x400') }}" alt="{{ $listing->post_title }}" />
+                    <img src="{{ App::featuredImage($listing, 'w732x400') }}" alt="{{ $listing->post_title }}" loading="lazy" />
                   </a>
                 </div>
               @endif

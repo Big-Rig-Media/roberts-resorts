@@ -11,7 +11,7 @@
                   @if( App::featuredImage($resort, 'w732x400') )
                     <div class="mb-2">
                       <a href="{{ get_permalink($resort->ID) }}">
-                        <img src="{{ App::featuredImage($resort, 'w732x400') }}" alt="{{ $resort->post_title }}" />
+                        <img src="{{ App::featuredImage($resort, 'w732x400') }}" alt="{{ $resort->post_title }}" loading="lazy" />
                       </a>
                     </div>
                   @endif
@@ -38,7 +38,7 @@
                   @if( App::featuredImage($listing, 'w732x400') )
                     <div class="mb-2">
                       <a href="{{ get_permalink($listing->ID) }}">
-                        <img src="{{ App::featuredImage($listing, 'w732x400') }}" alt="{{ $listing->post_title }}" />
+                        <img src="{{ App::featuredImage($listing, 'w732x400') }}" alt="{{ $listing->post_title }}" loading="lazy" />
                       </a>
                     </div>
                   @endif

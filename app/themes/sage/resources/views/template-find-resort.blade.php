@@ -33,7 +33,7 @@
               @if( App::featuredImage($resort, 'w732x400') )
                 <div class="md:w-2/5">
                   <a href="{{ get_permalink($resort->ID) }}">
-                    <img src="{{ App::featuredImage($resort, 'w732x400') }}" alt="{{ $resort->post_title }}" />
+                    <img src="{{ App::featuredImage($resort, 'w732x400') }}" alt="{{ $resort->post_title }}" loading="lazy" />
                   </a>
                 </div>
               @endif
@@ -150,7 +150,7 @@
             if (content.campspotSlug) {
               html =  `<div class="font-metropolis">
                         <a href="/resorts/${content.slug}">
-                          <img src="${content.image}" alt="${content.title}" />
+                          <img src="${content.image}" alt="${content.title}" loading="lazy" />
                         </a>
                         <h4 class="mb-1">${content.title}</h4>
                         <span class="text-sm">${content.city}, ${content.state} ${content.zipcode}</span>
@@ -162,7 +162,7 @@
             } else {
               html =  `<div class="font-metropolis">
                         <a href="/resorts/${content.slug}">
-                          <img src="${content.image}" alt="${content.title}" />
+                          <img src="${content.image}" alt="${content.title}" loading="lazy" />
                         </a>
                         <h4 class="mb-1">${content.title}</h4>
                         <span class="text-sm">${content.city}, ${content.state} ${content.zipcode}</span>

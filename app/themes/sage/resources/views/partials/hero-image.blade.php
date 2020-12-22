@@ -30,18 +30,20 @@
           @if( SingleListings::frontDeskPhone($post) || SingleListings::homeSalesPhone($post) || SingleListings::homeRentalsPhone($post) )
             <div class="flex flex-colum md:flex-row flex-wrap md:flex-no-wrap md:items-center justify-center md:text-2sm lg:text-base">
               @if( SingleListings::frontDeskPhone($post) )
-                <span class="mb-2 md:mb-0 uppercase"><strong>{{ SingleListings::frontDeskPhone($post) }}</strong> Front Desk</span>
+                <span class="mb-2 md:mb-0 uppercase">
+                  <a class="font-bold text-white no-underline" href="tel:{{ preg_replace('/[^0-9]/', '', SingleListings::frontDeskPhone($post)) }}">{{ SingleListings::frontDeskPhone($post) }}</a> Front Desk
+                </span>
               @endif
               @if( SingleListings::homeSalesPhone($post) )
                 <span class="mb-2 md:mb-0 mx-2 uppercase">
                   <span class="hidden md:inline-block pr-2 font-bold">&#124;</span>
-                  <strong>{{ SingleListings::homeSalesPhone($post) }}</strong> Home Sales
+                  <a class="font-bold text-white no-underline" href="tel:{{ preg_replace('/[^0-9]/', '', SingleListings::homeSalesPhone($post)) }}">{{ SingleListings::homeSalesPhone($post) }}</a> Home Sales
                 </span>
               @endif
               @if( SingleListings::homeRentalsPhone($post) )
                 <span class="uppercase">
                   <span class="hidden md:inline-block pr-2 font-bold">&#124;</span>
-                  <strong>{{ SingleListings::homeRentalsPhone($post) }}</strong> Home Rentals
+                  <a class="font-bold text-white no-underline" href="tel:{{ preg_replace('/[^0-9]/', '', SingleListings::homeRentalsPhone($post)) }}">{{ SingleListings::homeRentalsPhone($post) }}</a> Home Rentals
                 </span>
               @endif
             </div>
@@ -53,18 +55,20 @@
           @if( SingleListings::frontDeskPhone($post->post_parent) || SingleListings::homeSalesPhone($post->post_parent) || SingleListings::homeRentalsPhone($post->post_parent) )
             <div class="flex flex-colum md:flex-row flex-wrap md:flex-no-wrap md:items-center justify-center md:text-2sm lg:text-base">
               @if( SingleListings::frontDeskPhone($post->post_parent) )
-                <span class="mb-2 md:mb-0 uppercase"><strong>{{ SingleListings::frontDeskPhone($post->post_parent) }}</strong> Front Desk</span>
+                <span class="mb-2 md:mb-0 uppercase">
+                  <a class="font-bold text-white no-underline" href="tel:{{ preg_replace('/[^0-9]/', '', SingleListings::frontDeskPhone($post->post_parent)) }}">{{ SingleListings::frontDeskPhone($post->post_parent) }}</a> Front Desk
+                </span>
               @endif
               @if( SingleListings::homeSalesPhone($post->post_parent) )
                 <span class="mb-2 md:mb-0 mx-2 uppercase">
                   <span class="hidden md:inline-block pr-2 font-bold">&#124;</span>
-                  <strong>{{ SingleListings::homeSalesPhone($post->post_parent) }}</strong> Home Sales
+                  <a class="font-bold text-white no-underline" href="tel:{{ preg_replace('/[^0-9]/', '', SingleListings::homeSalesPhone($post->post_parent)) }}">{{ SingleListings::homeSalesPhone($post->post_parent) }}</a> Home Sales
                 </span>
               @endif
               @if( SingleListings::homeRentalsPhone($post->post_parent) )
                 <span class="uppercase">
                   <span class="hidden md:inline-block pr-2 font-bold">&#124;</span>
-                  <strong>{{ SingleListings::homeRentalsPhone($post->post_parent) }}</strong> Home Rentals
+                  <a class="font-bold text-white no-underline" href="tel:{{ preg_replace('/[^0-9]/', '', SingleListings::homeRentalsPhone($post->post_parent)) }}">{{ SingleListings::homeRentalsPhone($post->post_parent) }}</a> Home Rentals
                 </span>
               @endif
             </div>
