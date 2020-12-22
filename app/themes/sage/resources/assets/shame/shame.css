@@ -70,6 +70,14 @@ footer hr {
   .sub-menu--mega--2 {
     max-width: 500px;
   }
+
+  .hero {
+    max-height: 480px;
+  }
+
+  .logged-in .js-sticky.is-sticky {
+    top: 32px;
+  }
 }
 
 @media (min-width: 1336px) {

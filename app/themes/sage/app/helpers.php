@@ -178,6 +178,7 @@ function display_hero_meta($slug)
             'attractions',
             'rental-cabins',
             'golf',
+            'thank-you'
         ];
 
         return in_array($slug, $slugs);

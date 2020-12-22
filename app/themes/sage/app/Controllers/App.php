@@ -414,6 +414,52 @@ class App extends Controller
         }
     }
 
+    public static function brand()
+    {
+        global $post;
+
+        $ancestors = get_ancestors(get_queried_object_id(), 'listings');
+
+        if ( is_singular('listings') ) {
+            switch ( count($ancestors) ) {
+                case 0:
+                    return get_field('logo', $post->ID);
+                break;
+                case 1:
+                    return get_field('logo', $post->post_parent);
+                break;
+                case 2:
+                    return get_field('logo', get_post($ancestors[1])->ID);
+                break;
+            }
+        } else {
+            return get_option('branding');
+        }
+    }
+
+    public static function brandAlt()
+    {
+        global $post;
+
+        $ancestors = get_ancestors(get_queried_object_id(), 'listings');
+
+        if ( is_singular('listings') ) {
+            switch ( count($ancestors) ) {
+                case 0:
+                    return get_the_title($post->ID);
+                break;
+                case 1:
+                    return get_the_title($post->post_parent);
+                break;
+                case 2:
+                    return get_the_title(get_post($ancestors[1])->ID);
+                break;
+            }
+        } else {
+            return get_bloginfo('name', 'display');
+        }
+    }
+
     public static function resortStates()
     {
         $terms = get_terms([
