@@ -38,8 +38,8 @@
   <section class="fixed pin-b pin-l pin-r z-50 md:hidden py-3 bg-white shadow-lg">
     <div class="flex flex-row flex-no-wrap items-center justify-center">
       @if( ( is_front_page() || is_page() ) )
-        <a class="inline-block py-3 px-4 text-xs font-semibold text-white text-shadow uppercase no-underline bg-primary-2" href="{{ get_permalink(109) }}">Find Resort</a>
-        <a class="inline-block ml-3 py-3 px-4 text-xs font-semibold text-white text-shadow uppercase no-underline bg-primary-2" href="{{ get_permalink(203) }}">Specials</a>
+        <a class="inline-block py-3 px-4 text-xs font-semibold text-white text-shadow uppercase no-underline bg-primary-2" href="{{ get_permalink(109) }}">Find a Resort</a>
+        <a class="inline-block ml-3 py-3 px-4 text-xs font-semibold text-white text-shadow uppercase no-underline bg-primary-2" href="{{ get_permalink(60) }}">Find a Home</a>
       @elseif( is_singular('listings') )
         @switch( count(get_ancestors(get_queried_object_id(), 'listings')) )
           @case(0)

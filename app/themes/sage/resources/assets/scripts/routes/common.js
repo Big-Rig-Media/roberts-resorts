@@ -151,15 +151,33 @@ export default {
             const checkOut = e.target['check-out'].value
             const adults = e.target['adults'].value
 
-            if (checkIn === '' && checkOut === '' && adults === 'Please Select') {
+            if (resort === 'Please Select' && checkIn === '' && checkOut === '' && adults === 'Please Select') {
+              alert('Please select a resort, check-in date, check-out date and number of adults')
+            }
+
+            if (resort !== 'Please Select' && checkIn === '' && checkOut === '' && adults === 'Please Select') {
               window.open(`https://www.campspot.com/book/${resort}`)
-            } else {
+            }
+
+            if (resort !== 'Please Select' && checkIn !== '' && checkOut !== '' && adults !== 'Please Select') {
               window.open(`https://www.campspot.com/book/${resort}/search/${checkIn}/${checkOut}/guests${adults},0,0`)
+            }
+
+            if (resort !== 'Please Select' && checkIn === '' && checkOut === '' && adults !== 'Please Select') {
+              window.open(`https://www.campspot.com/book/${resort}/search/guests${adults},0,0`)
+            }
+
+            if (resort !== 'Please Select' && checkIn !== '' && checkOut !== '' && adults === 'Please Select') {
+              window.open(`https://www.campspot.com/book/${resort}/search/${checkIn}/${checkOut}`)
             }
           } else {
             const resort = e.target['resort'].options[e.target['resort'].selectedIndex].dataset.slug
 
-            window.location.replace(`/resorts/${resort}`)
+            if (resort !== undefined) {
+              window.location.replace(`/resorts/${resort}`)
+            } else {
+              alert('Please select a resort')
+            }
           }
         })
       })
