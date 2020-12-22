@@ -27,7 +27,7 @@
                 <select class="w-full h-10 max-h-input px-6 border border-primary-7" name="status">
                   <option selected>Please Select</option>
                   @foreach( $statuses as $status )
-                    <option value=".{{ strtolower($status->name) }}">{{ $status->name }}</option>
+                    <option value=".{{ $status->slug }}">{{ $status->name }}</option>
                   @endforeach
                 </select>
               </div>
@@ -61,7 +61,7 @@
                       <span class="absolute z-50 py-3 font-semibold text-white text-center uppercase text-shadow {{ $bg }}" style="top:20px;left:-80px;width:300px;transform:rotate(-30deg);">{{ TemplateTaxonomyType::status($listing)[0] }}</span>
                     @endif
                     <a href="{{ get_permalink($listing->ID) }}">
-                      <img src="{{ App::featuredImage($listing, 'w732x400') }}" />
+                      <img src="{{ App::featuredImage($listing, 'w732x400') }}" alt="{{ $listing->post_title }}" />
                     </a>
                   </div>
                 @endif

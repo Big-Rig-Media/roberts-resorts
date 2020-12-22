@@ -36,11 +36,13 @@
                 <span class="mb-2 md:mb-0 mx-2 uppercase">
                   <span class="hidden md:inline-block pr-2 font-bold">&#124;</span>
                   <strong>{{ SingleListings::homeSalesPhone($post) }}</strong> Home Sales
-                  <span class="hidden md:inline-block pl-2 font-bold">&#124;</span>
                 </span>
               @endif
               @if( SingleListings::homeRentalsPhone($post) )
-                <span class="uppercase"><strong>{{ SingleListings::homeRentalsPhone($post) }}</strong> Home Rentals</span>
+                <span class="uppercase">
+                  <span class="hidden md:inline-block pr-2 font-bold">&#124;</span>
+                  <strong>{{ SingleListings::homeRentalsPhone($post) }}</strong> Home Rentals
+                </span>
               @endif
             </div>
           @endif
@@ -57,11 +59,13 @@
                 <span class="mb-2 md:mb-0 mx-2 uppercase">
                   <span class="hidden md:inline-block pr-2 font-bold">&#124;</span>
                   <strong>{{ SingleListings::homeSalesPhone($post->post_parent) }}</strong> Home Sales
-                  <span class="hidden md:inline-block pl-2 font-bold">&#124;</span>
                 </span>
               @endif
               @if( SingleListings::homeRentalsPhone($post->post_parent) )
-                <span class="uppercase"><strong>{{ SingleListings::homeRentalsPhone($post->post_parent) }}</strong> Home Rentals</span>
+                <span class="uppercase">
+                  <span class="hidden md:inline-block pr-2 font-bold">&#124;</span>
+                  <strong>{{ SingleListings::homeRentalsPhone($post->post_parent) }}</strong> Home Rentals
+                </span>
               @endif
             </div>
           @endif

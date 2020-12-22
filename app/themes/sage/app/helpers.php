@@ -178,7 +178,9 @@ function display_hero_meta($slug)
             'attractions',
             'rental-cabins',
             'golf',
-            'thank-you'
+            'thank-you',
+            'golf-course',
+            'models-for-sale'
         ];
 
         return in_array($slug, $slugs);
@@ -197,6 +199,24 @@ function display_hero_booking_form($slug)
         $slugs = [];
 
         return in_array($slug, $slugs);
+    }
+
+    return;
+}
+
+/**
+ * Determine whether to show the listings filter
+ * @return bool
+ */
+function display_listing_filter($slug)
+{
+    if ( $slug ) {
+        $slugs = [
+            'vacation-rentals',
+            'models-for-sale'
+        ];
+
+        return !in_array($slug, $slugs);
     }
 
     return;
