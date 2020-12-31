@@ -214,9 +214,9 @@ class App extends Controller
     public static function resorts()
     {
         $query = new \WP_Query([
-            'post_type'         => 'listings',
-            'post_parent'       => 0,
-            'posts_per_page'    => -1
+            'post_type' => 'listings',
+            'post__in'  => [11,10,5,12,16,15,14,13],
+            'orderby'   => 'post__in'
         ]);
 
         if ( $query->have_posts() ) {
@@ -226,11 +226,15 @@ class App extends Controller
         return;
     }
 
+    /**
+     * Get listing pages
+     */
     public static function listings()
     {
         $query = new \WP_Query([
             'post_type' => 'page',
-            'post__in'  => [60,1843]
+            'post__in'  => [1843,60],
+            'orderby'   => 'post__in'
         ]);
 
         if ( $query->have_posts() ) {
