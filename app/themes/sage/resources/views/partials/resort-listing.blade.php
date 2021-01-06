@@ -2,23 +2,28 @@
 <section class="py-16">
   <div class="container">
     <div class="mb-10 text-center">
-      <h1>{{ $post->post_title }}</h1>
-      @if( SingleListings::price($listing) || SingleListings::bedrooms($listing) || SingleListings::bathrooms($listing) )
-        <div class="flex flex-row flex-no-wrap justify-center text-sm uppercase">
-          @if( SingleListings::price($listing) && (SingleListings::bedrooms($listing) && SingleListings::bathrooms($listing)) && SingleListings::lotNumber($listing) )
-            <span>${{ SingleListings::price($listing) }}</span>
+      @if( function_exists('bcn_display') )
+        <div class="mb-5 text-left breadcrumbs">
+          {{ bcn_display() }}
+        </div>
+      @endif
+      <h1 class="text-left">{{ $post->post_title }}</h1>
+      @if( SingleListings::price($post) || SingleListings::bedrooms($post) || SingleListings::bathrooms($post) )
+        <div class="flex flex-row flex-no-wrap justify-start text-sm uppercase">
+          @if( SingleListings::price($post) && SingleListings::bedrooms($post) && SingleListings::bathrooms($post) && SingleListings::lotNumber($post) )
+            <span>${{ SingleListings::price($post) }}</span>
               <span class="mx-2">
                 <span class="pr-2">&#124;</span>
-                {{ SingleListings::bedrooms($listing) }} BR / {{ SingleListings::bathrooms($listing) }} BA
+                {{ SingleListings::bedrooms($post) }} BR / {{ SingleListings::bathrooms($post) }} BA
                 <span class="pl-2">&#124;</span>
               </span>
-              <span>Lot {{ SingleListings::lotNumber($listing) }}</span>
+              <span>Lot {{ SingleListings::lotNumber($post) }}</span>
             @endif
-            @if( SingleListings::price($listing) && SingleListings::lotNumber($listing) && !SingleListings::bedrooms($listing) && !SingleListings::bathrooms($listing) )
-              <span>${{ SingleListings::price($listing) }}</span>
+            @if( SingleListings::price($post) && SingleListings::lotNumber($post) && !SingleListings::bedrooms($post) && !SingleListings::bathrooms($post) )
+              <span>${{ SingleListings::price($post) }}</span>
               <span class="ml-2">
                 <span class="pr-2">&#124;</span>
-                Lot {{ SingleListings::lotNumber($listing) }}
+                Lot {{ SingleListings::lotNumber($post) }}
               </span>
             @endif
           </div>

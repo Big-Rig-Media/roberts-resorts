@@ -180,7 +180,8 @@ function display_hero_meta($slug)
             'golf',
             'thank-you',
             'golf-course',
-            'models-for-sale'
+            'models-for-sale',
+            'faqs'
         ];
 
         return in_array($slug, $slugs);

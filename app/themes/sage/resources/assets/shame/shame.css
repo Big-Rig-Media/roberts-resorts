@@ -112,3 +112,12 @@ footer hr {
 .sub-menu--mega {
   z-index: 60;
 }
+
+.breadcrumbs a {
+  color: #232f40;
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  color: #fe9c02;
+}
